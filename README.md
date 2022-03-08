@@ -1,4 +1,4 @@
-# Trabajo de Fin de Grado: *Técnicas de Deep Learning para el diagnóstico del Alzheimer*
+# Trabajo de Fin de Grado: *Técnicas de Deep Learning para el diagnóstico del Alzheimer* 🧠
 
 La enfermedad de Alzheimer es una enfermedad en la que un diagnóstico temprano o en las primeras etapas de la misma puede ser determinante para el paciente. En la mayoría de casos detectar esta enfermedad en las primeras fases de la misma es una tarea muy compleja.
 
