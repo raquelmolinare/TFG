@@ -1,0 +1,209 @@
+% \documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+\documentclass[a4paper,11pt]{book}
+%\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc}
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage{listings} % para insertar código con formato similar al editor
+\usepackage[spanish, es-tabla]{babel} % Selecciona el español para palabras introducidas automáticamente, p.ej. "septiembre" en la fecha y especifica que se use la palabra Tabla en vez de Cuadro
+\usepackage{url} % ,href} %para incluir URLs e hipervínculos dentro del texto (aunque hay que instalar href)
+\usepackage{graphics,graphicx, float} %para incluir imágenes y colocarlas
+\usepackage[gen]{eurosym} %para incluir el símbolo del euro
+\usepackage{cite} %para incluir citas del archivo <nombre>.bib
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{afterpage}
+\usepackage{longtable}
+\usepackage[stable]{footmisc}
+\usepackage[table,xcdraw]{xcolor}
+
+
+
+% ********************************************************************
+% Re-usable information
+% ********************************************************************
+\newcommand{\myTitle}{Técnicas de Deep Learning para el diagnóstico del Alzheimer\xspace}
+\newcommand{\myDegree}{Grado en Ingeniería Informática\xspace}
+\newcommand{\myName}{Raquel Molina Reche\xspace}
+\newcommand{\myProf}{Rosa María Rodriguez Sánchez\xspace}
+\newcommand{\myFaculty}{Escuela Técnica Superior de Ingenierías Informática y de
+Telecomunicación\xspace}
+\newcommand{\myFacultyShort}{E.T.S. de Ingenierías Informática y de
+Telecomunicación\xspace}
+\newcommand{\myDepartment}{Departamento de Ciencias de la Computación e Inteligencia Artificial\xspace}
+\newcommand{\myUni}{\protect{Universidad de Granada}\xspace}
+\newcommand{\myLocation}{Granada\xspace}
+\newcommand{\myTime}{\today\xspace}
+\newcommand{\myVersion}{Version 0.1\xspace}
+
+
+\hypersetup{
+    colorlinks=true,	% false: boxed links; true: colored links
+    linkcolor=black,	% color of internal links
+    urlcolor=cyan		% color of external links
+}
+
+
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead[L]{} % Empty left header
+\fancyhead[C]{} % Empty center header
+%\fancyhead[R]{Me Llamo Así} % My name
+\fancyfoot[L]{} % Empty left footer
+%\fancyfoot[C]{} % Empty center footer
+\fancyhf{}
+\fancyhead[LO]{\leftmark}
+\fancyhead[RE]{\rightmark}
+\fancyhead[RO,LE]{\textbf{\thepage}}
+\fancyfoot[C]{\thepage} % Page numbering for center footer
+%\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}}
+
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+\setcounter{secnumdepth}{4}
+\usepackage[Lenny]{fncychap}
+
+\setlength{\headheight}{1.5\headheight}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\bigrule}{\titlerule[0.5mm]}
+
+
+%Definimos los tipos teorema, ejemplo y definición podremos usar estos tipos
+%simplemente poniendo \begin{teorema} \end{teorema} ...
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{ejemplo}{Ejemplo}[chapter]
+\newtheorem{definicion}{Definición}[chapter]
+
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+\definecolor{gray30}{gray}{.94}
+
+\lstset{ frame=Ltb,
+    framerule=0.5pt,
+    aboveskip=0.5cm,
+    framextopmargin=3pt,
+    framexbottommargin=3pt,
+    framexleftmargin=0.1cm,
+    framesep=0pt,
+    rulesep=.4pt,
+    backgroundcolor=\color{gray97},
+    rulesepcolor=\color{black},
+%
+    stringstyle=\ttfamily,
+    showstringspaces = false,
+    basicstyle=\scriptsize\ttfamily,
+    commentstyle=\color{gray45},
+    keywordstyle=\bfseries,
+%
+    numbers=left,
+    numbersep=6pt,
+    numberstyle=\tiny,
+    numberfirstline = false,
+    breaklines=true,
+}
+
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+{\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+
+\lstdefinestyle{CodigoC}
+{
+    basicstyle=\scriptsize,
+    frame=single,
+    language=C,
+    numbers=left
+}
+\lstdefinestyle{CodigoC++}
+{
+    basicstyle=\small,
+    frame=single,
+    backgroundcolor=\color{gray30},
+    language=C++,
+    numbers=left
+}
+
+
+\lstdefinestyle{Consola}
+{basicstyle=\scriptsize\bf\ttfamily,
+    backgroundcolor=\color{gray30},
+    frame=single,
+    numbers=none
+}
+
+%Para conseguir que en las páginas en blanco no ponga cabecerass
+\makeatletter
+\def\clearpage{%
+    \ifvmode
+    \ifnum \@dbltopnum =\m@ne
+    \ifdim \pagetotal <\topskip
+    \hbox{}
+    \fi
+    \fi
+    \fi
+    \newpage
+    \thispagestyle{empty}
+    \write\m@ne{}
+    \vbox{}
+    \penalty -\@Mi
+}
+\makeatother
+
+
+
+\begin{document}
+
+    % Plantilla portada UGR
+    \input{portada/portada}
+
+    % Plantilla prefacio UGR
+    \input{prefacios/prefacio}
+
+    %\frontmatter
+    %\tableofcontents
+    %\listoffigures
+    %\listoftables
+    %
+    %\mainmatter
+    %\setlength{\parskip}{5pt}
+
+    %\input{capitulos/01_Introduccion}
+    %
+    %\input{capitulos/02_EspecificacionRequisitos}
+    %
+    %\input{capitulos/03_Planificacion}
+    %
+    %\input{capitulos/04_Analisis}
+    %
+    %\input{capitulos/05_Diseno}
+    %
+    %\input{capitulos/06_Implementacion}
+    %
+    %\input{capitulos/07_Pruebas}
+    %
+    %\input{capitulos/08_Conclusiones}
+    %
+    %%\chapter{Conclusiones y Trabajos Futuros}
+    %
+    %
+    %%\nocite{*}
+    %\bibliography{bibliografia/bibliografia}\addcontentsline{toc}{chapter}{Bibliografía}
+    %\bibliographystyle{miunsrturl}
+    %
+    %\appendix
+    %\input{apendices/manual_usuario/manual_usuario}
+    %%\input{apendices/paper/paper}
+    %\input{glosario/entradas_glosario}
+    % \addcontentsline{toc}{chapter}{Glosario}
+    % \printglossary
+
+\end{document}
