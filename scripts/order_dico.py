@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-DICT_PATH = '.github/workflows/allow_words.txt'
+DICT_PATH = '.github/workflows/personal_dico.txt'
 
 with open(DICT_PATH, mode='r') as f:
     file = f.read().split()
