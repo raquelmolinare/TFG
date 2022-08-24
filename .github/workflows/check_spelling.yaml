@@ -8,4 +8,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Install tools and spelling check
         run: make workflow-spell
+        working-directory: scripts
         
