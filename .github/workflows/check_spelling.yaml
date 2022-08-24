@@ -7,5 +7,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install tools and spelling check
-        run: make workflow-spell
+        run: ./doc make workflow-spell
         
