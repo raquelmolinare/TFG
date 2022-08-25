@@ -8,7 +8,7 @@ $(DOC): $(DOC_NAME).tex
 	pdflatex $< $* && pdflatex $< && pdflatex $<
 
 # Spell checker
-spell:
+spellcheck:
 	bash ./../scripts/spell_check.sh
 
 # install spell checker
@@ -18,7 +18,7 @@ install-spell:
 order-allow-words:
 	python ./../scripts/order_allow_words.py
 
-workflow-spell: install-spell order-allow-words spell
+workflow-spellcheck: order-allow-words spellcheck
 
 clean:
 	find . -name "*.aux" -type f -delete

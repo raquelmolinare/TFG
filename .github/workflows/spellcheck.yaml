@@ -15,7 +15,10 @@ jobs:
       # Spellcheck
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install tools and spelling check
-        run: make workflow-spell
+      - name: Install tools
+        run: make install-spell
+        working-directory: doc
+      - name: Spellcheck
+        run: make workflow-spellcheck
         working-directory: doc
         
