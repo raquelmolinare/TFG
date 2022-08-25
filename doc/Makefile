@@ -12,13 +12,8 @@ spellcheck:
 	bash ./../scripts/spell_check.sh
 
 # install spell checker
-install-spell:
+install-spellcheck:
 	bash ./../scripts/spell_install.sh
-
-order-allow-words:
-	python ./../scripts/order_allow_words.py
-
-workflow-spellcheck: spellcheck
 
 clean:
 	find . -name "*.aux" -type f -delete
