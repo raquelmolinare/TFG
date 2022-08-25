@@ -2,14 +2,14 @@
 SpellingError () {
     error=0;
     echo "";
-    echo "Analizando si hay fallos en fichero" $1":";
+    echo "Checking for misspellings in file" $1":";
     n_line=1;
     while IFS= read -r line
     do
-        resultado=$(echo $line | aspell --mode=tex  --lang=en --list | aspell --mode=tex  --lang=es --list --home-dir=. --personal=.github/workflows/personal_dico.txt);
-        if [[ ! -z "$resultado" ]]
+        result=$(echo $line | aspell --mode=tex  --lang=en --list | aspell --mode=tex  --lang=es --list --home-dir=.. --personal=.github/workflows/allow_words.txt);
+        if [[ ! -z "$result" ]]
         then
-         echo "Spell error in line $n_line : $resultado"
+         echo "Spell error in line $n_line : $result"
          let "error = 1";
         fi
         let "n_line += 1"
@@ -18,7 +18,7 @@ SpellingError () {
 }
 export -f SpellingError;
 exitValue=0
-for file in $(find ./doc/prefacios -name "*.tex")
+for file in $(find  -name "*.tex")
 do
     SpellingError $file;
     let "exitValue += $?"
