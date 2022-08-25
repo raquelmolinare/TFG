@@ -13,7 +13,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Spellcheck
-      - uses: actions/checkout@v2
-      - uses: igsekor/pyspelling-any@v0.0.2
-        name: Spellcheck
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install tools and spelling check
+        run: make workflow-spell
+        working-directory: doc
         
