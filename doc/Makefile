@@ -18,7 +18,7 @@ install-spell:
 order-allow-words:
 	python ./../scripts/order_allow_words.py
 
-workflow-spellcheck: order-allow-words spellcheck
+workflow-spellcheck: spellcheck
 
 clean:
 	find . -name "*.aux" -type f -delete

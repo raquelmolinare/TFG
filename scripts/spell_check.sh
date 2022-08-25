@@ -6,7 +6,7 @@ SpellingError () {
     n_line=1;
     while IFS= read -r line
     do
-        result=$(echo $line | aspell --mode=tex  --lang=en --list | aspell --mode=tex  --lang=es --list --home-dir=. --personal=.github/workflows/allow_words.txt);
+        result=$(echo $line | aspell --mode=tex  --lang=en --list | aspell --mode=tex  --lang=es --list --home-dir=.. --personal=.github/workflows/allow_words.txt);
         if [[ ! -z "$result" ]]
         then
          echo "Spell error in line $n_line : $result"
