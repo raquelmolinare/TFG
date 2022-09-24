@@ -138,7 +138,8 @@
 
 
 \lstdefinestyle{Consola}
-{basicstyle=\scriptsize\bf\ttfamily,
+{
+    basicstyle=\scriptsize\textbf{\ttfamily},
     backgroundcolor=\color{gray30},
     frame=single,
     numbers=none
@@ -146,10 +147,9 @@
 
 %Para conseguir que en las páginas en blanco no ponga cabecerass
 \makeatletter
-\def\clearpage{%
+\renewcommand{\clearpage}{%
     \ifvmode
-    \ifnum \@dbltopnum =\m@ne
-    \ifdim \pagetotal <\topskip
+    \ifnum \@dbltopnum =\m@ne\ifdim \pagetotal <\topskip
     \hbox{}
     \fi
     \fi
