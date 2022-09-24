@@ -6,6 +6,12 @@ Python
 Reche
 Rodriguez
 Sánchez
+Imágen
+Computarizada
+DL
+GDS
+Cognitivamente
+CDR
 colorlinks
 linkcolor
 urlcolor

@@ -1,0 +1,68 @@
+%! Author = raquelmolire
+%! Date = 24/09/2022
+
+% Document
+
+A día de hoy, gracias a los avances en ciencias de la computación, la inteligencia artificial (IA) se está convirtiendo
+en una parte fundamental de la atención médica actual.
+Algoritmos y aplicaciones impulsadas por IA se usan en el día a día para ayudar a los profesionales en entornos clínicos
+y en el ámbito de la investigación.
+
+La enfermedad del Alzheimer (EA)  es una enfermedad neurodegenerativa que afecta a aproximadamente 1.200.000 personas
+en España y a más de 50 millones de personas en el mundo.
+ Es una enfermedad progresiva , o lo que es lo mismo, que empeora con el tiempo y para la que no existe una cura, solo
+la posibilidad de aplicar tratamientos que ralenticen su avance.
+Para que estos tratamientos no resulten perjudiciales para la salud del paciente deben realizarse en las primeras etapas
+de la enfermedad.
+Por ello un diagnóstico temprano puede ser determinante para el paciente, pero, en la mayoría de casos, detectar esta
+enfermedad en las primeras fases de la misma es una tarea muy compleja.
+
+Investigaciones previas han concluido que las primeras lesiones cerebrales pueden aparecer incluso 20 años antes de que
+aparezcan los primeros síntomas del Alzheimer.
+De hecho una de las evaluaciones médicas para la detección de la enfermedad se basa en el diagnóstico por imágenes
+cerebrales mediante la realización de un examen neurológico, que puede incluir técnicas como: MRI
+(Imágen por Resonancia Magnética) o TC (Tomografía Computarizada).
+
+A día de hoy el aprendizaje profundo o deep learning (DL)  ha levantado mucho interés en el mundo de la medicina.
+El Deep learning es un subconjunto del machine learning (ML) en IA, que simula el comportamiento del cerebro humano en
+el procesamiento de datos y el reconocimiento de patrones para resolver problemas complejos de toma de decisiones.
+
+Es por esto que el uso de DL puede ayudar a un diagnóstico temprano, ya que estos sistemas pueden ser utilizados para la
+detección de anomalías en imágenes médicas donde destaca la rapidez de la detección, sirviendo como herramienta de
+prevención y seguimiento de la enfermedad.
+
+También cabe destacar que la enfermedad del Alzheimer presenta diferentes fases y la velocidad a la que avanza la
+enfermedad por las diferentes fases varía, por lo que es más difícil realizar predicciones a largo plazo.
+Se usan escalas con distinto número de fases:
+\begin{itemize}
+    \item La escala de deterioro global (GDS) se divide en siete fases que dependen del valor del deterioro cognitivo y
+    \item más común utilizarla para escalar la demencia senil.
+    Sus fases son: ausencia de alteración cognitiva, disminución cognitiva muy leve, defecto cognitivo leve, defecto
+    cognitivo moderado, defecto cognitivo moderado-grave, defecto cognitivo grave y defecto cognitivo muy grave.
+    \item La escala de clasificación de la demencia clínica (CDR)  se divide en cinco fases, es la más utilizada en el
+    área de investigación y evalúa diferentes parámetros como la memoria, la orientación, la resolución de problemas,
+    el juicio, etc.
+    Sus fases son: Cognitivamente sano (CDR 0), demencia cuestionable (CDR 0.5), demencia leve (CDR 1), demencia
+    moderada (CDR 2) y demencia grave (CDR 3).
+    \item La escala de clasificación común solo tiene en cuenta tres fases, es la más usada en la comunicación
+    médico-familia, ya que es la más sencilla de comprender.
+    Las fases que tiene en cuenta son: Enfermedad de Alzheimer leve (etapa temprana), enfermedad de Alzheimer moderada
+    (etapa media) y enfermedad de Alzheimer grave (etapa final).\\
+\end{itemize}
+
+
+Actualmente, la mayoría de los modelos y trabajos de investigación de técnicas de DL se centran principalmente en la
+clasificación binaria, es decir, sólo tienen en cuenta si el paciente sufre EA o no.
+Dejando de lado la importancia de conocer cuál es la fase actual del paciente, ya que el protocolo a seguir puede ser
+muy distinto entre unas fases u otras, y más teniendo en cuenta que las fases con las que se suele hacer el seguimiento
+del Alzheimer no son dos sino cinco.
+
+Por lo tanto, la motivación de este trabajo se centra en el estudio del uso de técnicas de Deep Learning para el
+diagnóstico del Alzheimer a partir de imágenes cerebrales.
+En concreto en dos aspectos:
+\begin{itemize}
+    \item El análisis de la variación de precisión, y, por tanto, variación de fiabilidad, del uso de estas técnicas en
+    el diagnóstico del Alzheimer según distinto número de fases de la enfermedad que se tienen en cuenta en la
+    clasificación.
+    \item Facilitar su uso en una aplicación real. \\
+\end{itemize}
