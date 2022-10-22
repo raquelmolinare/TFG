@@ -13,6 +13,14 @@ DL
 GDS
 Cognitivamente
 CDR
+amiloide
+neurofibrilares
+conductuales
+extracelulares
+fibrillas
+Jannis
+ralentizarse
+radiofármacos
 colorlinks
 linkcolor
 urlcolor
