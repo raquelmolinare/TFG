@@ -91,3 +91,28 @@ Las conclusiones obtenidas en la literatura sobre las técnicas de análisis en 
     aunque las vistas axiales son las más utilizadas.
     Hay estudios que afirman que no hay diferencias significativas entre planos.\\
 \end{itemize}
+
+\subsection{Modelos profundos más utilizados para obtener patrones relacionados con la EA}
+\label{subsec:modelos-profundos-estado-del-arte}
+Lamentablemente la mayoría de los estudios no publican su código fuente por lo que resulta difícil comparar de manera
+imparcial los estudios entre sí.
+Además normalmente los artículos se limitan a comparar precisiones finales y no a comparar distintos factores como el
+coste computacional.
+
+Las redes neuronales convolucionales (CNN) son las más usadas en el ámbito de la medicina porque han demostrado una
+alta precisión en términos de clasificación de imágenes médicas.
+
+Entre los modelos observados, los mejores resultados se encuentran entre las 3D-CNN y las 2D-CNN. Ambas opciones tienen
+un buen rendimiento para la extracción de características, en el caso de las  arquitecturas de red neuronal de tipo
+3D-CNN estas muestran ligeramente un mayor rendimiento ya que recogen información tridimensional y, por tanto, más
+cantidad de información, sin embargo  las de tipo 2D-CNN son más fáciles de entrenar, requieren de un menor coste
+computacional.
+
+En la mayor parte de los estudios se entrena un modelo profundo desde cero, pero, esto puede ser ineficiente, porque
+el proceso de entrenamiento requiere mucho tiempo y un gran conjunto de datos.
+Mientras que los conjuntos de datos para la detección y clasificación de objetos genéricos cuentan con millones de
+imágenes, los conjuntos de datos de neuroimagen disponibles suelen ser pequeños, de solo cientos de imágenes, lo que da
+lugar a un sobreajuste.
+El Transfer Learning (TL) es más rápido y alcanza mejores resultados que el entrenamiento desde cero, de modo que,
+generalmente resulta útil utilizar CNNs probadas y pre-entrenadas para volver a entrenarlas con otro conjunto de datos.
+
