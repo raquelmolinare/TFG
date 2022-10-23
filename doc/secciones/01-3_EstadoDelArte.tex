@@ -51,3 +51,43 @@ Las técnicas de preprocesamiento más usadas son:
     \item Segmentación del cráneo.
     \item Corrección del movimiento.\\
 \end{itemize}
+
+\subsection{Técnicas de análisis de neuroimagen}\label{subsec:analisis-de neuroimagen-estado-del-arte}
+Las técnicas de análisis o de extracción de características en neuroimagen se pueden dividir en cuatro categorías,
+dependiendo de las características extraídas: basadas en vóxeles, en cortes, en parches y en regiones de interés (ROI).
+
+La técnica basada en vóxeles, también llamada morfometría basada en Vóxel (VBM), es la más sencilla, se utiliza en MRI,
+permite el análisis de lesiones focales cerebrales y en ella se realiza una división del cerebro en vóxeles que son la
+unidad cúbica que compone un objeto tridimensional, el equivalente al píxel en un objeto bidimensional.
+Esta técnica permite identificar las diferencias de concentración entre la sustancia gris y la sustancia blanca del
+cerebro mediante la comparación vóxel a vóxel de los valores de intensidad de los mismos.
+
+La técnica basada en cortes consiste en extraer, mediante cortes, imágenes bidimensionales con la mayor información
+posible.
+Como conclusión de los artículos se obtiene que la vista coronal engloba las tres regiones más importantes del cerebro
+relacionadas con la EA: el hipocampo, la corteza y los ventrículos, y que los cortes centrales son los que incluyen
+áreas que tienen características más relevantes para la clasificación.
+Sin embargo, ya que el uso de las tres vistas de las neuroimágenes tridimensionales puede proporcionar características
+útiles adicionales para la clasificación, algunos estudios tienen en cuenta todas las vistas de la imagen (sagital,
+coronal y axial).
+
+En la técnica basada en parches, pequeños sub-volúmenes de la imagen definidos como cubos tridimensionales conocidos
+como parches se usan para extraer patrones relacionados con la enfermedad.
+La diferencia entre un parche y un vóxel es que los vóxeles constituyen la mínima unidad procesable.
+
+La técnica basada en ROI se centra en las partes del cerebro más afectadas en la fase temprana de la EA, en vez de
+ocuparse de todo el cerebro.
+
+Las conclusiones obtenidas en la literatura sobre las técnicas de análisis en neuroimagen son las siguientes:
+\begin{itemize}
+    \item Los métodos basados en ROI y en parches son más exactos, ya que son los métodos con los que se obtiene
+    información más relevante;
+    sin embargo, son también los métodos más costosos.
+    \item Los métodos basados en parches son más precisos que los basados en vóxeles, pero la selección de los parches
+    con más información de la imágen es una tarea compleja.
+    \item El uso de cortes 2D como entrada en lugar de la imagen 3D en su totalidad evita la generación de millones de
+    parámetros de entrenamiento e induce a la simplificación de las redes a costa de perder información.
+    \item Al utilizar métodos basados en cortes, las vistas sagital y coronal resultan ser las más discriminatorias,
+    aunque las vistas axiales son las más utilizadas.
+    Hay estudios que afirman que no hay diferencias significativas entre planos.\\
+\end{itemize}
