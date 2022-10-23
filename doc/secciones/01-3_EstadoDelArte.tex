@@ -116,3 +116,33 @@ lugar a un sobreajuste.
 El Transfer Learning (TL) es más rápido y alcanza mejores resultados que el entrenamiento desde cero, de modo que,
 generalmente resulta útil utilizar CNNs probadas y pre-entrenadas para volver a entrenarlas con otro conjunto de datos.
 
+\subsection{Conjuntos de datos y herramientas de software útiles}\label{subsec:datos-y-herramientas-estado-del-arte}
+Como paquetes software de análisis de neuromágen están: FreeSurfer, FSL, MIPAV y SPM, que ofrecen herramientas potentes
+para diversas técnicas de preprocesamiento automatizado comentadas en el
+apartado~\ref{subsec:preprocesamiento-estado-del-arte}.
+
+Para implementar modelos profundos las herramientas más utilizadas son: MATLAB, Keras, TensorFlow, Theano, Caffe, y
+Torch.
+Siendo Keras y TensorFlow los más utilizados y Torch el menos utilizado.
+
+La principal dificultad a la que se enfrentan los investigadores es la falta de imágenes que permitan formar un gran
+conjunto de datos de entrenamiento con el que poder obtener un resultado preciso y por tanto un diagnóstico fiable.
+La escasez de datos es un problema que se debe a las restricciones de privacidad de las imágenes médicas y de su elevado
+coste en muchos casos.
+
+Como bases de datos online para obtener conjuntos de datos relativos a la EA, las más importantes son: ADNI, AIBL,
+OASIS y MIRIAD, que ofrecen al público biomarcadores como neuroimagen, información genética y sanguínea, y evaluaciones
+clínicas y cognitivas.
+ADNI es la que más destaca de todas ellas por ser un estudio multicéntrico y longitudinal, además es el más común en la
+literatura, de manera individual o en combinación con otros.
+Esta última es una forma de poner solución a la insuficiencia de datos.
+Al combinar diferentes conjuntos de datos, se produce una mayor heterogeneidad, lo cual es una desventaja, pero se crea
+un modelo amplio para la clasificación y la predicción.
+
+Las técnicas de aumento de datos entre las que se encuentran la reflexión, la rotación, la traslación aleatoria, el
+desenfoque o el escalado mejoran el rendimiento de la clasificación sin la necesidad de recoger nuevos datos cuando
+estos son limitados.
+
+Se recomienda el uso de un conjunto de datos equilibrado, ya que, en caso contrario, un desequilibrio entre pacientes de
+distintas categorías provoca una variación en la precisión.
+Siendo, por tanto, preferible el uso de un conjunto de datos menor antes que uno desequilibrado.
