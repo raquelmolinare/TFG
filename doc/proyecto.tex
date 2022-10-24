@@ -17,6 +17,7 @@
 \usepackage{longtable}
 \usepackage[stable]{footmisc}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage[font=small,labelfont=bf,center]{caption}
 
 
 
@@ -24,14 +25,14 @@
 % Re-usable information
 % ********************************************************************
 \newcommand{\myTitle}{Técnicas de Deep Learning para el diagnóstico del Alzheimer\xspace}
+\newcommand{\myTitleEn}{Deep Learning techniques for Alzheimer's disease diagnosis\xspace}
 \newcommand{\myDegree}{Grado en Ingeniería Informática\xspace}
 \newcommand{\myName}{Raquel Molina Reche\xspace}
 \newcommand{\myProf}{Rosa María Rodriguez Sánchez\xspace}
-\newcommand{\myFaculty}{Escuela Técnica Superior de Ingenierías Informática y de
-Telecomunicación\xspace}
-\newcommand{\myFacultyShort}{E.T.S. de Ingenierías Informática y de
-Telecomunicación\xspace}
+\newcommand{\myFaculty}{Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación\xspace}
+\newcommand{\myFacultyShort}{E.T.S. de Ingenierías Informática y de Telecomunicación\xspace}
 \newcommand{\myDepartment}{Departamento de Ciencias de la Computación e Inteligencia Artificial\xspace}
+\newcommand{\myProject}{Trabajo Fin de Grado\xspace}
 \newcommand{\myUni}{\protect{Universidad de Granada}\xspace}
 \newcommand{\myLocation}{Granada\xspace}
 \newcommand{\myTime}{\today\xspace}
@@ -48,30 +49,44 @@ Telecomunicación\xspace}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{fancyhdr} % Custom headers and footers
 \pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhf{} % clear existing header/footer entries
+% HEADER
+\setlength{\headheight}{13.6pt} % Customize the height of the header
 \fancyhead[L]{} % Empty left header
 \fancyhead[C]{} % Empty center header
-%\fancyhead[R]{Me Llamo Así} % My name
-\fancyfoot[L]{} % Empty left footer
-%\fancyfoot[C]{} % Empty center footer
-\fancyhf{}
+\fancyhead[R]{} % Empty right header
 \fancyhead[LO]{\leftmark}
 \fancyhead[RE]{\rightmark}
-\fancyhead[RO,LE]{\textbf{\thepage}}
-\fancyfoot[C]{\thepage} % Page numbering for center footer
-%\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\fancyhead[RO,LE]{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection. #1}}
+% FOOOTER
 \renewcommand{\footrulewidth}{0pt} % Remove footer underlines
-\setlength{\headheight}{13.6pt} % Customize the height of the header
-\renewcommand{\chaptermark}[1]{\markboth{\textbf{#1}}{}}
-\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}}
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+
+\fancypagestyle{plain}{%
+    \fancyhf{}% clear all header and footer fields
+    \fancyfoot[C]{\thepage} % except the center
+    \renewcommand{\headrulewidth}{0pt}%
+    \renewcommand{\footrulewidth}{0pt}%
+}
+
+\fancypagestyle{coverpage}{%
+    \fancyhf{}% clear all header and footer fields
+    \fancyhead[L]{\myProject} % except the center
+%    \renewcommand{\headrulewidth}{0pt}%
+    \renewcommand{\footrulewidth}{0pt}%
+}
+
 
 \usepackage{titlesec, blindtext, color}
-\definecolor{gray75}{gray}{0.75}
 \newcommand{\hsp}{\hspace{20pt}}
-\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
-\setcounter{secnumdepth}{4}
-\usepackage[Lenny]{fncychap}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp{|}\hsp}{0pt}{\Huge\bfseries}
+\setcounter{secnumdepth}{3} % Turn off/on section numbers (0=no numbers, 1=numbers in sections, 2=numbers in subsections ...)
+\setcounter{tocdepth}{3}
+%\usepackage[Lenny]{fncychap}
 
-\setlength{\headheight}{1.5\headheight}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \newcommand{\bigrule}{\titlerule[0.5mm]}
@@ -134,7 +149,8 @@ Telecomunicación\xspace}
 
 
 \lstdefinestyle{Consola}
-{basicstyle=\scriptsize\bf\ttfamily,
+{
+    basicstyle=\scriptsize\textbf{\ttfamily},
     backgroundcolor=\color{gray30},
     frame=single,
     numbers=none
@@ -142,10 +158,9 @@ Telecomunicación\xspace}
 
 %Para conseguir que en las páginas en blanco no ponga cabecerass
 \makeatletter
-\def\clearpage{%
+\renewcommand{\clearpage}{%
     \ifvmode
-    \ifnum \@dbltopnum =\m@ne
-    \ifdim \pagetotal <\topskip
+    \ifnum \@dbltopnum =\m@ne\ifdim \pagetotal <\topskip
     \hbox{}
     \fi
     \fi
@@ -168,16 +183,25 @@ Telecomunicación\xspace}
     % Plantilla prefacio UGR
     \input{prefacios/prefacio}
 
-    %\frontmatter
-    %\tableofcontents
-    %\listoffigures
-    %\listoftables
-    %
-    %\mainmatter
-    %\setlength{\parskip}{5pt}
+    \frontmatter
 
-    %\input{capitulos/01_Introduccion}
-    %
+    % Índice de contenidos
+    \newpage
+    \tableofcontents
+
+    % Índice de imágenes y tablas
+    \newpage
+    \listoffigures
+
+    % Si hay suficientes se incluirá dicho índice
+%    \newpage
+%    \listoftables
+
+    \mainmatter
+    \setlength{\parskip}{5pt}
+
+    \input{capitulos/01_Introduccion}
+
     %\input{capitulos/02_EspecificacionRequisitos}
     %
     %\input{capitulos/03_Planificacion}

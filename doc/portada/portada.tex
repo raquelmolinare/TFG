@@ -1,42 +1,31 @@
 \begin{titlepage}
+    \newlength{\centeroffset}
+    \setlength{\centeroffset}{-0.5\oddsidemargin}
+    \addtolength{\centeroffset}{0.5\evensidemargin}
+    \thispagestyle{empty}
+    \noindent\hspace*{\centeroffset}
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{logos/logo_ugr}\\[1.4cm]
+        \textsc{\MakeUppercase{ \Large  \myProject}\\[0.2cm]}
+        \textsc{\MakeUppercase{\myDegree}}\\[1cm]
+        {\Huge\bfseries \myTitle\\}
+        \noindent\rule[-1ex]{\textwidth}{3pt}\\[3.5ex]
+    \end{minipage}\newpage
 
+    \vspace{2.5cm}
+    \noindent\hspace*{\centeroffset}
+    \begin{minipage}{\textwidth}
+        \thispagestyle{coverpage}
+        \centering
+        \textbf{Autora}\\ {\myName}\\[2.5ex]
+        \textbf{Directora}\\ {\myProf}\\[2cm]
+        \includegraphics[width=0.3\textwidth]{logos/etsiit_logo}\\[0.1cm]
+        \textsc{\myFaculty}\\
+        \textsc{---}\\
+        \myLocation, \myTime
+    \end{minipage}
 
-\newlength{\centeroffset}
-\setlength{\centeroffset}{-0.5\oddsidemargin}
-\addtolength{\centeroffset}{0.5\evensidemargin}
-\thispagestyle{empty}
-
-\noindent\hspace*{\centeroffset}\begin{minipage}{\textwidth}
-
-\centering
-\includegraphics[width=0.9\textwidth]{logos/logo_ugr}\\[1.4cm]
-
-\textsc{ \Large TRABAJO FIN DE GRADO\\[0.2cm]}
-\textsc{ GRADO EN INGENIERÍA INFORMÁTICA}\\[1cm]
-% Upper part of the page
-% 
-% Title
-{\Huge\bfseries Técnicas de Deep Learning para el diagnóstico del Alzheimer\\}
-\noindent\rule[-1ex]{\textwidth}{3pt}\\[3.5ex]
-%{\large\bfseries Subtitulo del Proyecto}
-\end{minipage}
-
-
-\vspace{2.5cm}
-
-\noindent\hspace*{\centeroffset}\begin{minipage}{\textwidth}
-\thispagestyle{empty}
-\centering
-
-\textbf{Autora}\\ {Raquel Molina Reche}\\[2.5ex]
-\textbf{Directora}\\ {Rosa María Rodriguez Sánchez}\\[2cm]
-\includegraphics[width=0.3\textwidth]{logos/etsiit_logo}\\[0.1cm]
-\textsc{Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación}\\
-\textsc{---}\\
-Granada, Noviembre de 2022
-
-
-\end{minipage}
 \end{titlepage}
 
 
