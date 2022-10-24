@@ -6,7 +6,6 @@ Python
 Reche
 Rodriguez
 Sánchez
-Imágen
 imagenológico
 Computarizada
 DL
