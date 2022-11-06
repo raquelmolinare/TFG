@@ -1,0 +1,13 @@
+# IDE specific files
+.idea
+.vscode/*
+
+# Python compiled files
+*.pyc
+__pycache__
+
+# Virtual env
+venv
+test_venv
+
+.env
