@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "alz_care_api"}]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 Flask = "^2.2.2"
 flask-smorest = "^0.40.0"
 marshmallow = "^3.18.0"
