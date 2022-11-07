@@ -24,7 +24,7 @@ jobs:
         run: pip install black flake8
 
       - name: Run linters
-        uses: Alz-care-APP/alz-care-api/
+        uses: wearerequired/lint-action@v2
         with:
           black: true
           flake8: true
