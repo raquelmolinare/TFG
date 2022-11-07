@@ -1,0 +1,117 @@
+@use "./palette" as *;
+
+// change the theme
+$theme-colors: (
+        "primary": $alz-primary,
+        "secondary": $alz-secondary,
+        "success": $alz-success,
+        "warning": $alz-warning,
+        "danger": $alz-danger,
+        "info": $alz-info,
+        "light": $alz-light,
+        "dark": $alz-dark
+);
+
+$grays: (
+        "100": $alz-grey-100,
+        "200": $alz-grey-200,
+        "300": $alz-grey-300,
+        "400": $alz-grey-400,
+        "500": $alz-grey-500,
+        "600": $alz-grey-600,
+        "700": $alz-grey-700,
+        "800": $alz-grey-800,
+        "900": $alz-grey-900
+);
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+
+.btn {
+  margin: 4px;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  color: $alz-grey-900;
+
+  &:hover {
+    color: $alz-grey-900;
+    background-color: $alz-grey-200;;
+  }
+
+  &:focus {
+    color: $alz-grey-900;
+  }
+}
+
+.btn-light {
+  color: $alz-dark;
+
+  &:hover {
+    color: $alz-dark;
+    background-color: $alz-secondary;
+  }
+
+  &:focus {
+    color: $alz-dark;
+  }
+}
+
+.btn-danger {
+  color: $alz-white;
+
+  &:hover {
+    color: $alz-white;
+    background-color: $alz-red-700;
+  }
+
+  &:focus {
+    color: $alz-white;
+  }
+}
+
+.btn-info {
+  color: $alz-dark;
+
+  &:hover {
+    color: $alz-primary;
+    background-color: $alz-white;
+  }
+
+  &:focus {
+    color: $alz-primary;
+  }
+}
+
+.form-control, .was-validated .form-control {
+  &:focus, &:valid:focus {
+    border-color: $alz-primary;
+    box-shadow: 0 0 0 0.25rem rgba(17, 88, 130, 0.3);
+  }
+
+  &:valid {
+    border: 1px solid #ced4da;
+    background-image: none;
+  }
+}
+
+.form-check-input, .was-validated .form-check-input {
+  &:focus, &:checked, &:valid:focus {
+    border-color: $alz-primary;
+    box-shadow: 0 0 0 0.25rem rgba(17, 88, 130, 0.3);
+  }
+
+   &:checked, &:valid:checked {
+     background-color: $alz-primary;
+   }
+
+  &:valid {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
+  &:valid ~ .form-check-label {
+      color: $alz-black;
+  }
+}
