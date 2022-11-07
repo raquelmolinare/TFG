@@ -1,0 +1,31 @@
+name: Alz Care backend CI
+
+on:
+  # Trigger the workflow on push or pull request
+  push:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install poetry
+        run: pip install poetry
+
+      - name: Install dependencies
+        working-directory: Alz-care-APP/alz-care-api
+        run: poetry install
+
+      - name: Run lint
+        working-directory: Alz-care-APP/alz-care-api
+        run: poetry run task lint
+
+      - name: Run tests
+        working-directory: Alz-care-APP/alz-care-api
+        run: poetry run task test
