@@ -13,8 +13,9 @@ def create_app():
     return app
 
 
-# Create the app
-app = create_app()
-api = Api(app)
+if __name__ == "__main__":
+    # Create the app
+    app = create_app()
+    api = Api(app)
 
-app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
