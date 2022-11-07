@@ -1,7 +1,7 @@
 name: Alz Care Front CI
 
 on:
-
+  [push]
 jobs:
   run-linters:
     name: Check the source code
