@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: Alz-care-APP/alz-care-api
-        run: poetry install
+        run: curl -sSL https://install.python-poetry.org | python3 -
 
       - name: Run lint
         working-directory: Alz-care-APP/alz-care-api
