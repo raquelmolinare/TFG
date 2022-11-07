@@ -1,0 +1,24 @@
+name: Alz Care Front CI
+
+on:
+  [push]
+jobs:
+  run-linters:
+    name: Check the source code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install packages
+        working-directory: Alz-care-APP/alz-care-front
+        run: npm ci
+
+      - name: Prettier
+        working-directory: Alz-care-APP/alz-care-front
+        run: npx prettier --check .
+
+      - name: Run tests
+        working-directory: Alz-care-APP/alz-care-front
+        run: npm test

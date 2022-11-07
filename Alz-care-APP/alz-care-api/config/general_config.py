@@ -11,10 +11,14 @@ class Settings(BaseSettings):
     OPENAPI_VERSION: str = '3.0.2'
     OPENAPI_URL_PREFIX: str = 'apidocs'
     OPENAPI_SWAGGER_UI_PATH: str = '/swagger'
-    OPENAPI_SWAGGER_UI_URL: str = 'https://cdn.jsdelivr.net/npm/swagger-ui-dist/'
     OPENAPI_RAPIDOC_PATH: str = '/rapidoc'
-    OPENAPI_RAPIDOC_URL: str = 'https://unpkg.com/rapidoc/dist/rapidoc-min.js'
     OPENAPI_REDOC_PATH: str = '/redoc'
+    OPENAPI_SWAGGER_UI_URL: str = (
+        'https://cdn.jsdelivr.net/npm/swagger-ui-dist/'
+    )
+    OPENAPI_RAPIDOC_URL: str = (
+        'https://unpkg.com/rapidoc/dist/rapidoc-min.js'
+    )
     OPENAPI_REDOC_URL: str = (
         'https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js'
     )
