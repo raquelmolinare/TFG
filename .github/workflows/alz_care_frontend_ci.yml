@@ -1,10 +1,6 @@
 name: Alz Care Front CI
 
 on:
-  # Trigger the workflow on push or pull request
-  push:
-  pull_request:
-    types: [opened, reopened]
 
 jobs:
   run-linters:
