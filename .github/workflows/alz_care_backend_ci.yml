@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: Alz-care-APP/alz-care-api
-        run: poetry install
+        run: poetry install --no-root
 
       - name: Run lint
         working-directory: Alz-care-APP/alz-care-api
