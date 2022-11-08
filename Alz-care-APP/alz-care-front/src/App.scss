@@ -1,4 +1,27 @@
+@use "./styles/palette" as *;
+
 .App {
   position: relative;
   height: 100vh;
+  min-height: 100% !important;
+  font-weight: 500;
+  background-color: $alz-site-bg;
+}
+
+.navbar {
+  min-height: 85px;
+}
+
+.main {
+  min-height: calc(100vh - 90px) !important;
+}
+
+.logo {
+  width: 25%;
+  margin: 0 10px 0 10px;
+}
+
+// TODO: REMOVE TO USE LOGO
+.app-title {
+  font-size: xx-large;
 }
