@@ -1,25 +1,21 @@
 import React from "react";
-import Logo from "../../assets/img/logo.png";
+import Logo from "../../assets/img/icon.png";
+import Name from "../../assets/img/name.png";
 
 interface PageHeadProps {
-  /**
-   * Title of the page
-   */
-  title?: string;
-
   /**
    * Fragment rendered in the buttons' section of the page head
    */
   buttons?: React.ReactNode;
 }
 
-export function Header({ title, buttons }: PageHeadProps) {
+export function Header({ buttons }: PageHeadProps) {
   return (
     <nav className="navbar navbar-light bg-light shadow sticky-top">
-      <span>
-        <img id="logo" className="logo" src={Logo} alt="Alz Care logo" />
-        {title && <span className="app-title"> {title} </span>}
-      </span>
+      <div className="col">
+        <img id="logo" className="logo" src={Logo} alt="Alz Care Logo" />
+        <img id="name" className="name" src={Name} alt="Alz Care Name" />
+      </div>
       {buttons && <div>{buttons}</div>}
     </nav>
   );
