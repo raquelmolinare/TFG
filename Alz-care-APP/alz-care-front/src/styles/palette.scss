@@ -1,4 +1,4 @@
-$alz-white: #FFFFFF;
+$alz-white: #ffffff;
 $alz-grey-50: #f4f5f6;
 $alz-grey-100: #e4e6e8;
 $alz-grey-200: #d2d6d9;
@@ -11,20 +11,6 @@ $alz-grey-800: #8a9399;
 $alz-grey-900: #79838a;
 $alz-black: #111111;
 
-$alz-primary-50: #A9F4DE; // lighter
-$alz-primary-100: #B9F1E4;
-$alz-primary-200: #A5EEDD;
-$alz-primary-300: #91E4D0;
-$alz-primary-400: #76d8c1;
-$alz-primary-500: #62D6BA;
-$alz-primary-600: #5AC6AC; // Primary color
-$alz-primary-700: #5ABCA5;
-$alz-primary-800: #50A994;
-$alz-primary-900: #479583; // darker
-
-$alz-secondary-500: #DAFBFF;
-$alz-info-600: #92D2E2;
-
 $alz-red-50: #ffeaef;
 $alz-red-100: #ffcbd4;
 $alz-red-200: #f0969e;
@@ -36,17 +22,17 @@ $alz-red-700: #d81436;
 $alz-red-800: #cb062f;
 $alz-red-900: #bd0022;
 
+$alz-primary: #3c7682;
+$alz-secondary: #bbe0dd;
+$alz-subtitle-color: #92d2e2;
+$alz-primary-dark: #33636d;
 
-$alz-primary: $alz-primary-600;
-$alz-secondary: $alz-secondary-500;
-$alz-subtitle-color: $alz-info-600;
-
-$alz-success: #00b58a;
+$alz-success: #198754;
 $alz-warning: #e9b816;
 $alz-danger: $alz-red-600;
-$alz-info: $alz-info-600;
-$alz-light: $alz-primary-50;
-$alz-dark: $alz-primary-900;
+$alz-info: #92d2e2;
+$alz-light: #f4f4f4;
+$alz-dark: #14171c;
 
 $alz-site-bg: #f4f4f4;
 $alz-snackbar-bg: #323232;

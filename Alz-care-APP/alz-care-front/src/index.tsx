@@ -8,6 +8,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "./index.scss";
+import "./styles/custom.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
