@@ -28,9 +28,11 @@ $grays: (
 @import "~bootstrap/scss/bootstrap.scss";
 
 .btn {
-  margin: 4px;
+  margin: 6px;
   font-weight: 500;
+  font-size: large;
   border-radius: 0.3rem;
+  padding: 8px;
 }
 
 .btn-secondary {

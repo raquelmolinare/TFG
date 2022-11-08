@@ -1,0 +1,21 @@
+@use "../../styles/palette.scss" as *;
+
+.app-info-text {
+  text-align: left;
+  h1 {
+    font-size: xxx-large;
+    font-weight: bolder;
+  }
+
+  h2 {
+    font-weight: 200;
+  }
+}
+
+.avatar {
+  width: 75% !important;
+  min-width: 350px !important;
+  max-width: 600px;
+  position: relative !important;
+  z-index: -1 !important;
+}
