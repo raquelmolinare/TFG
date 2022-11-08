@@ -2,6 +2,7 @@
 
 .app-info-text {
   text-align: left;
+  padding-left: 5rem;
   h1 {
     font-size: xxx-large;
     font-weight: bolder;
@@ -13,9 +14,10 @@
 }
 
 .avatar {
-  width: 75% !important;
+  width: 100% !important;
   min-width: 350px !important;
-  max-width: 600px;
+  max-width: 800px;
   position: relative !important;
   z-index: -1 !important;
+  border-radius: 100%;
 }

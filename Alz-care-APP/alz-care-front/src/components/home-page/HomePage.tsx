@@ -5,7 +5,7 @@ import { Button } from "../base/Button";
 import { Main } from "../base/Main";
 import { motion } from "framer-motion";
 
-import LandingPageAvatar from "../../assets/img/logo.png";
+import LandingPageAvatar from "../../assets/img/landing-page.png";
 
 import "./HomePage.scss";
 
