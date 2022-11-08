@@ -5,7 +5,7 @@ interface MainProps {
    * children
    */
   children?: React.ReactNode;
-}/*  */
+} /*  */
 
 export function Main({ children }: MainProps) {
   return (
