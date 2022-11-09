@@ -81,14 +81,23 @@ class FileController:
 
     @classmethod
     def __save_images_from_nifti_file(cls, nifti_img, path):
-        file_path = os.path.join(path, secure_filename(BrainPlanesFileName.AXIAL.value))
-        cls.__save_axial_image(nifti_img, cls.__get_middle_axial_slide(nifti_img), file_path)
+        file_path = os.path.join(path, secure_filename(
+            BrainPlanesFileName.AXIAL.value))
+        cls.__save_axial_image(nifti_img,
+                               cls.__get_middle_axial_slide(nifti_img),
+                               file_path)
 
-        file_path = os.path.join(path, secure_filename(BrainPlanesFileName.CORONAL.value))
-        cls.__save_coronal_image(nifti_img, cls.__get_middle_coronal_slide(nifti_img), file_path)
+        file_path = os.path.join(path, secure_filename(
+            BrainPlanesFileName.CORONAL.value))
+        cls.__save_coronal_image(nifti_img,
+                                 cls.__get_middle_coronal_slide(nifti_img),
+                                 file_path)
 
-        file_path = os.path.join(path, secure_filename(BrainPlanesFileName.SAGITTAL.value))
-        cls.__save_sagittal_image(nifti_img, cls.__get_middle_sagittal_slide(nifti_img), file_path)
+        file_path = os.path.join(path, secure_filename(
+            BrainPlanesFileName.SAGITTAL.value))
+        cls.__save_sagittal_image(nifti_img,
+                                  cls.__get_middle_sagittal_slide(nifti_img),
+                                  file_path)
 
     @staticmethod
     def __preprocess_input(x):
@@ -97,7 +106,8 @@ class FileController:
 
     @classmethod
     def __load_image(cls, file_path):
-        img = load_img(file_path, target_size=(get_config().IMG_SIZE, get_config().IMG_SIZE))
+        img = load_img(file_path, target_size=(get_config().IMG_SIZE,
+                                               get_config().IMG_SIZE))
         x = image.img_to_array(img)
         x = np.expand_dims(x, axis=0)
         x = cls.__preprocess_input(x)
@@ -107,13 +117,16 @@ class FileController:
         img = nib.load(nifti_file_path).get_fdata()
         self.__save_images_from_nifti_file(img, self.uuid_dir_path)
         images = []
-        file_path = os.path.join(self.uuid_dir_path, secure_filename(BrainPlanesFileName.AXIAL.value))
+        file_path = os.path.join(self.uuid_dir_path, secure_filename(
+            BrainPlanesFileName.AXIAL.value))
         axial = self.__load_image(file_path)
         images.append(axial)
-        file_path = os.path.join(self.uuid_dir_path, secure_filename(BrainPlanesFileName.CORONAL.value))
+        file_path = os.path.join(self.uuid_dir_path, secure_filename(
+            BrainPlanesFileName.CORONAL.value))
         coronal = self.__load_image(file_path)
         images.append(coronal)
-        file_path = os.path.join(self.uuid_dir_path, secure_filename(BrainPlanesFileName.SAGITTAL.value))
+        file_path = os.path.join(self.uuid_dir_path, secure_filename(
+            BrainPlanesFileName.SAGITTAL.value))
         sagittal = self.__load_image(file_path)
         images.append(sagittal)
         return images
@@ -132,7 +145,7 @@ class FileController:
         nifti_file.save(file_path)
 
         # Process nifti_file
-        images = self.__process_nifti_file(nifti_file_path=file_path)
+        self.__process_nifti_file(nifti_file_path=file_path)
 
         # Remove temp directory
         self.__delete_temp_dir()
