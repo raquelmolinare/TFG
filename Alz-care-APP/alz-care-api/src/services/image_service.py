@@ -23,7 +23,6 @@ def get_image(upload_file):
     try:
         file_controller = FileController(generate_uuid())
         result = file_controller.upload(file)
-
         return result
     except NotAllowedFileTypeException as e:
         abort(make_response(e.error_message, 400))

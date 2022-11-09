@@ -27,6 +27,9 @@ class Settings(BaseSettings):
 
     UPLOAD_FOLDER: str = 'static/images'
 
+    CMAP: str = "gray"
+    IMG_SIZE: int = 224
+
     class Config:
         env_file = ".env"
 

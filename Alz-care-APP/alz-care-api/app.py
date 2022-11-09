@@ -4,6 +4,9 @@ from flask_smorest import Api
 from config.general_config import get_config
 from src.services import image_service
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 
 def create_app():
     app = Flask(__name__)
