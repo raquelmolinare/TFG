@@ -10,8 +10,10 @@ from tensorflow.keras.preprocessing.image import load_img
 from werkzeug.utils import secure_filename
 
 from config.general_config import get_config
+from src.classes.img_classification import Prediction, ImgClassification
 from src.definitions.classes_constanst import ALLOWED_NIFTI_FILE_EXTENSION, \
-    ALLOWED_NIFTI_FILE_CONTENT_TYPE, BrainPlanesFileName
+    ALLOWED_NIFTI_FILE_CONTENT_TYPE, BrainPlanesFileName, BrainPlanes
+from src.classes.model_manager import ModelManager
 
 
 class NotAllowedFileTypeException(Exception):
@@ -43,11 +45,12 @@ class FileController:
         except OSError:
             raise OSErrorException
 
-    def __delete_temp_dir(self):
-        try:
-            shutil.rmtree(self.uuid_dir_path)
-        except Exception:
-            raise OSErrorException
+    def delete_temp_dir(self):
+        if os.path.exists(self.uuid_dir_path):
+            try:
+                shutil.rmtree(self.uuid_dir_path)
+            except Exception:
+                raise OSErrorException
 
     @staticmethod
     def __get_middle_axial_slide(img):
@@ -104,6 +107,29 @@ class FileController:
         # TODO: related to the model
         return x
 
+    def __get_base64_images(self):
+        file_a_path = os.path.join(self.uuid_dir_path,
+                                   secure_filename(BrainPlanesFileName.AXIAL.
+                                                   value))
+        file_c_path = os.path.join(self.uuid_dir_path,
+                                   secure_filename(BrainPlanesFileName.CORONAL.
+                                                   value))
+        file_s_path = os.path.join(self.uuid_dir_path,
+                                   secure_filename(BrainPlanesFileName.
+                                                   SAGITTAL.value))
+
+        import base64
+        with open(file_c_path, "rb") as image_file:
+            encoded_coronal_string = base64.b64encode(image_file.read())
+
+        with open(file_s_path, "rb") as image_file:
+            encoded_sagittal_string = base64.b64encode(image_file.read())
+
+        with open(file_a_path, "rb") as image_file:
+            encoded_axial_string = base64.b64encode(image_file.read())
+
+        return encoded_coronal_string, encoded_sagittal_string, encoded_axial_string  # noqa
+
     @classmethod
     def __load_image(cls, file_path):
         img = load_img(file_path, target_size=(get_config().IMG_SIZE,
@@ -131,7 +157,7 @@ class FileController:
         images.append(sagittal)
         return images
 
-    def upload(self, nifti_file):
+    def classify_nifti_file(self, nifti_file, include_images=False):
         # Validate nifti_file
         self.validate_nifti_file(file_content_type=nifti_file.content_type,
                                  file_filename=nifti_file.filename)
@@ -145,10 +171,53 @@ class FileController:
         nifti_file.save(file_path)
 
         # Process nifti_file
-        self.__process_nifti_file(nifti_file_path=file_path)
+        images = self.__process_nifti_file(nifti_file_path=file_path)
+
+        # Make predictions
+        axial_prediction, axial_prediction_score = \
+            ModelManager.predict(images[0])
+        coronal_prediction, coronal_prediction_score = \
+            ModelManager.predict(images[1])
+        sagittal_prediction, sagittal_prediction_score = \
+            ModelManager.predict(images[2])
+
+        if include_images:
+            # Get predictions images
+            base64_images = self.__get_base64_images()
+
+            # result file prediction
+            axial_result = ImgClassification(plane=BrainPlanes.AXIAL.value,
+                                             img=base64_images[0],
+                                             prediction=Prediction(axial_prediction,# noqa
+                                                                   axial_prediction_score))# noqa
+            coronal_result = ImgClassification(plane=BrainPlanes.CORONAL.value,
+                                               img=base64_images[1],
+                                               prediction=Prediction(coronal_prediction,# noqa
+                                                                     coronal_prediction_score))# noqa
+            sagittal_result = ImgClassification(plane=BrainPlanes.SAGITTAL.value,# noqa
+                                                img=base64_images[2],
+                                                prediction=Prediction(sagittal_prediction,# noqa
+                                                                      sagittal_prediction_score))# noqa
+
+            classification_result = [axial_result, coronal_result,
+                                     sagittal_result]
+
+        else:
+            # result file prediction
+            axial_result = ImgClassification(plane=BrainPlanes.AXIAL.value,
+                                             prediction=Prediction(axial_prediction,# noqa
+                                                                   axial_prediction_score))  # noqa
+            coronal_result = ImgClassification(plane=BrainPlanes.CORONAL.value,
+                                               prediction=Prediction(coronal_prediction,# noqa
+                                                                     coronal_prediction_score))  # noqa
+            sagittal_result = ImgClassification(plane=BrainPlanes.SAGITTAL.value,# noqa
+                                                prediction=Prediction(sagittal_prediction,# noqa
+                                                                      sagittal_prediction_score)) # noqa
+
+            classification_result = [axial_result, coronal_result,
+                                     sagittal_result]
 
         # Remove temp directory
-        self.__delete_temp_dir()
+        self.delete_temp_dir()
 
-        result = 'OK'
-        return result
+        return classification_result
