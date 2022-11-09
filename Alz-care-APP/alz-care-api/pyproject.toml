@@ -26,4 +26,4 @@ build-backend = "poetry.core.masonry.api"
 [tool.taskipy.tasks]
 test = "pytest"
 lint = "flake8 --statistics"
-serve = "flask --app app --debug run"
+serve = "python src/app.py"

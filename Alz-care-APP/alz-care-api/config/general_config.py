@@ -25,6 +25,8 @@ class Settings(BaseSettings):
 
     ENVIRONMENT: str = 'D'
 
+    UPLOAD_FOLDER: str = 'static/images'
+
     class Config:
         env_file = ".env"
 
