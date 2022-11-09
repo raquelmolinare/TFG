@@ -1,5 +1,6 @@
 import pytest
-from src.classes.file_controller import FileController, NotAllowedFileTypeException
+from src.classes.file_controller import FileController, \
+    NotAllowedFileTypeException
 
 
 class TestFileController(object):
@@ -10,4 +11,5 @@ class TestFileController(object):
 
     def test_validate_nifti_file(self):
         file_controller = FileController(1)
-        file_controller.validate_nifti_file('application/octet-stream', 'test.nii')
+        file_controller.validate_nifti_file('application/octet-stream',
+                                            'test.nii')
