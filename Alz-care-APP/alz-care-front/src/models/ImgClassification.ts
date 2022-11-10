@@ -1,19 +1,19 @@
 export enum BrainPlanes {
-    AXIAL = 'AXIAL',
-    CORONAL = 'CORONAL',
-    SAGITTAL = 'SAGITTAL'
+  AXIAL = "AXIAL",
+  CORONAL = "CORONAL",
+  SAGITTAL = "SAGITTAL",
 }
 
 export enum AlzheimerGroupsIndex {
-   AD = 0,
-   CN = 1,
-   MCI = 2,
+  AD = 0,
+  CN = 1,
+  MCI = 2,
 }
 
 export enum AlzheimerGroupsCode {
-   CN = 'Cognitivamente normal',
-   MCI = 'Deterioro cognitivo leve',
-   AD = 'Alzheimer',
+  CN = "Cognitivamente normal",
+  MCI = "Deterioro cognitivo leve",
+  AD = "Alzheimer",
 }
 
 export class Prediction {

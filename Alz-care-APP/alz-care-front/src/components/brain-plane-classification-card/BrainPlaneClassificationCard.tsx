@@ -12,7 +12,6 @@ interface BrainPlaneClassificationCardProps {
 export function BrainPlaneClassificationCard({
   classification,
 }: BrainPlaneClassificationCardProps) {
-
   const plane = () => {
     switch (classification.plane) {
       case BrainPlanes.AXIAL:
