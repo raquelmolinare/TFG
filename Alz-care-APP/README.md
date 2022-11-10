@@ -24,12 +24,12 @@ una clasificación del deterioro cognitivo y demencia presente en ella**
 
 |                             Home Page                              | 
 |:------------------------------------------------------------------:|
-| <img width="400px" src="./alz-care-front/src/assets/ux/home.png"/> |
+| <img width="100%" src="./alz-care-front/src/assets/ux/home.png"/> |
 
 
 |                             Classification Page                              | 
 |:----------------------------------------------------------------------------:|
-| <img width="400px" src="./alz-care-front/src/assets/ux/classification.png"/> |
+| <img width="100%" src="./alz-care-front/src/assets/ux/classification.png"/> |
 
 
 ## Tecnologías
@@ -60,21 +60,21 @@ una clasificación del deterioro cognitivo y demencia presente en ella**
 
 Final results v.1
 
-|                                Home Page                                 | 
-|:------------------------------------------------------------------------:|
-| <img width="400px" src="./alz-care-front/src/assets/ux/final-home.png"/> |
+|                                Home Page                                | 
+|:-----------------------------------------------------------------------:|
+| <img width="100%" src="./alz-care-front/src/assets/ux/final-home.png"/> |
 
 
 |                          Classification Page                           | 
 |:----------------------------------------------------------------------:|
-| <img width="400px" src="./alz-care-front/src/assets/ux/final-cp.png"/> |
+| <img width="100%" src="./alz-care-front/src/assets/ux/final-cp.png"/> |
 
 
 |                       Classification Page Loading                        | 
 |:------------------------------------------------------------------------:|
-| <img width="400px" src="./alz-care-front/src/assets/ux/final-cp-l.png"/> |
+| <img width="100%" src="./alz-care-front/src/assets/ux/final-cp-l.png"/> |
 
 
 |                       Classification Page Results                        | 
 |:------------------------------------------------------------------------:|
-| <img width="400px" src="./alz-care-front/src/assets/ux/final-cp-r.png"/> |
+| <img width="100%" src="./alz-care-front/src/assets/ux/final-cp-r.png"/> |
