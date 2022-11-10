@@ -10,9 +10,7 @@ interface MainProps {
 export function Main({ children }: MainProps) {
   return (
     <div className="container-fluid main">
-      <div className="row main align-content-center justify-content-center">
-        {children}
-      </div>
+      <div className="row main justify-content-center">{children}</div>
     </div>
   );
 }

@@ -25,6 +25,12 @@ class Settings(BaseSettings):
 
     ENVIRONMENT: str = 'D'
 
+    UPLOAD_FOLDER: str
+
+    CMAP: str = "gray"
+    IMG_SIZE: int = 224
+    MODEL_PATH: str
+
     class Config:
         env_file = ".env"
 

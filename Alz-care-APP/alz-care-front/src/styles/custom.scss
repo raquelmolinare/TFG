@@ -43,6 +43,14 @@ $grays: (
   }
 }
 
+.btn-outline-dark {
+  color: black;
+
+  &:hover {
+    color: white;
+  }
+}
+
 .form-control,
 .was-validated .form-control {
   &:focus,
@@ -78,4 +86,10 @@ $grays: (
   &:valid ~ .form-check-label {
     color: $alz-black;
   }
+}
+
+.spinner-border {
+  width: 6rem;
+  height: 6rem;
+  border-width: 8px;
 }
