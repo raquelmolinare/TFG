@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ImgClassification } from "../../models/ImgClassification";
-import { Card } from "../base/Card";
 
 import "./ClassificationOverview.scss";
 import { BrainPlaneClassificationCard } from "../brain-plane-classification-card/BrainPlaneClassificationCard";
@@ -35,7 +34,6 @@ const item = {
 export function ClassificationOverview({
   classificationList,
 }: ClassificationOverviewProps) {
-  console.log(classificationList);
   return (
     <div className="row justify-content-center align-content-center">
       <motion.div

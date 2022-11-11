@@ -6,7 +6,7 @@ import axialIcon from "../../assets/img/axial-icon.png";
 import coronalIcon from "../../assets/img/coronal-icon.png";
 import sagittalIcon from "../../assets/img/sagittal-icon.png";
 
-import "./BrainPlaneIcon.css";
+import "./BrainPlaneIcon.scss";
 
 interface BrainPlaneIconProps {
   /**

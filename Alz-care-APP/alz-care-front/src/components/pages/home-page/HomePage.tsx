@@ -55,7 +55,7 @@ export function HomePage() {
                 <div className="col d-flex justify-content-start">
                   <Button
                     className="btn btn-primary text-white m-2"
-                    onClick={goToHome}
+                    onClick={goToClassificationPage}
                   >
                     Clasificar
                   </Button>

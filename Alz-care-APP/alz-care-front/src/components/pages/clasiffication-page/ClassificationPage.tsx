@@ -13,18 +13,19 @@ import { Loading } from "../../base/Loading";
 
 import "./ClassificationPage.scss";
 
+const ALLOWED_NIFTI_FILE_EXTENSION = ["nii", "nii.gz"];
+
 export function ClassificationPage() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [selectedFileNifti, setSelectedFileNifti] = useState();
+  const [invalidInput, setInvalidInput] = useState(false);
 
   const [classification, setClassification] = useState<
     ImgClassification[] | undefined
   >();
   const { showSnackbar } = useSnackbar();
-
-  const [imagePath, setImagePath] = useState<string | undefined>(undefined);
 
   const goToHome = () => {
     navigate("/", { replace: true });
@@ -34,14 +35,22 @@ export function ClassificationPage() {
     navigate("/classify", { replace: true });
   };
 
+  const validateInput = (file: any) => {
+    return ALLOWED_NIFTI_FILE_EXTENSION.includes(file.name.split(".").pop());
+  };
+
   const onChangeHandler = (event: any) => {
     setClassification(undefined);
+    setInvalidInput(false);
     setSelectedFileNifti(event.target.files[0]);
   };
 
   const onClickHandler = (event: any) => {
     setClassification(undefined);
-    if (selectedFileNifti) {
+    if (!validateInput(selectedFileNifti)) {
+      setInvalidInput(true);
+      showError("", "Archivo no valido");
+    } else if (selectedFileNifti) {
       const formData = new FormData();
       formData.append("file", selectedFileNifti);
       classify(formData);
@@ -57,7 +66,7 @@ export function ClassificationPage() {
     );
     if (response instanceof ApiError) {
       setLoading(false);
-      showError(response.message);
+      showError("ERROR:", response.message);
       throw new Error(response.errorCode.toString());
       return;
     }
@@ -82,11 +91,12 @@ export function ClassificationPage() {
 
   /**
    * Show  corresponding message
+   * @param errortitle
    * @param errorMessage error message
    */
-  const showError = (errorMessage: string) => {
+  const showError = (errortitle: string, errorMessage: string) => {
     showSnackbar({
-      titleMessage: "ERROR: ",
+      titleMessage: errortitle,
       message: errorMessage,
     });
   };
@@ -115,7 +125,11 @@ export function ClassificationPage() {
               <div className="col  col-lg-4 align-self-center justify-content-center">
                 <input
                   type="file"
-                  className="form-control"
+                  className={
+                    invalidInput
+                      ? "form-control form-control-invalid"
+                      : "form-control"
+                  }
                   id="customFile"
                   onChange={onChangeHandler}
                 />

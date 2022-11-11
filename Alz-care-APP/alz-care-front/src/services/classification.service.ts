@@ -13,7 +13,6 @@ async function brainNiftiFileClassification(
       return response.data;
     })
     .catch((error: any) => {
-      console.log(error);
       // Error handler
       return ApiError.load(error);
     });
