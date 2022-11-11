@@ -5,7 +5,8 @@ from config.general_config import get_config
 from keras.models import load_model
 from tensorflow.keras.applications.efficientnet import preprocess_input
 
-from src.definitions.classes_constanst import ALZHEIMER_GROUPS_LIST, BrainPlanes
+from src.definitions.classes_constanst import ALZHEIMER_GROUPS_LIST, \
+    BrainPlanes
 
 
 class InvalidModelException(Exception):

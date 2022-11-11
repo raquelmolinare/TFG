@@ -187,9 +187,12 @@ class FileController:
         images = self.__process_nifti_file(nifti_file_path=file_path)
 
         # Make predictions
-        axial_prediction, axial_prediction_score = self.get_axial_prediction(images[0])
-        coronal_prediction, coronal_prediction_score = self.get_coronal_prediction(images[1])
-        sagittal_prediction, sagittal_prediction_score = self.get_sagittal_prediction(images[2])
+        axial_prediction, axial_prediction_score = \
+            self.get_axial_prediction(images[0])
+        coronal_prediction, coronal_prediction_score = \
+            self.get_coronal_prediction(images[1])
+        sagittal_prediction, sagittal_prediction_score = \
+            self.get_sagittal_prediction(images[2])
 
         if include_images:
             # Get predictions images
