@@ -1,6 +1,6 @@
 % \documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
 \documentclass[a4paper,11pt]{book}
-%\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \usepackage[utf8]{inputenc}
 \usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
 \usepackage{listings} % para insertar código con formato similar al editor
@@ -219,10 +219,11 @@
     %%\chapter{Conclusiones y Trabajos Futuros}
     %
     %
-    %%\nocite{*}
-    %\bibliography{bibliografia/bibliografia}\addcontentsline{toc}{chapter}{Bibliografía}
-    %\bibliographystyle{miunsrturl}
-    %
+
+    \newpage
+    \bibliography{bibliografia}\addcontentsline{toc}{chapter}{Bibliografía}
+    \bibliographystyle{unsrt}
+
     %\appendix
     %\input{apendices/manual_usuario/manual_usuario}
     %%\input{apendices/paper/paper}
