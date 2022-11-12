@@ -146,7 +146,8 @@ class FileController:
         self.__save_images_from_nifti_file(img, self.uuid_dir_path)
         images = []
         for plane_file_name in BrainPlanesFileName:
-            file_path = os.path.join(self.uuid_dir_path, secure_filename(plane_file_name.value))
+            file_path = os.path.join(self.uuid_dir_path,
+                                     secure_filename(plane_file_name.value))
             plane_image = self.__load_image(file_path)
             images.append(plane_image)
         return images
@@ -171,15 +172,15 @@ class FileController:
 
         # result file prediction
         axial_result = ImgClassification(plane=BrainPlanes.AXIAL.value,
-                                         img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.AXIAL.value]],
+                                         img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.AXIAL.value]],# noqa
                                          prediction=Prediction(a_predict,  # noqa
                                                                axial_predict_score))  # noqa
         coronal_result = ImgClassification(plane=BrainPlanes.CORONAL.value,
-                                           img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.CORONAL.value]],
+                                           img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.CORONAL.value]],# noqa
                                            prediction=Prediction(c_predict,  # noqa
                                                                  c_predict_score))  # noqa
         sagittal_result = ImgClassification(plane=BrainPlanes.SAGITTAL.value,  # noqa
-                                            img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.SAGITTAL.value]],
+                                            img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.SAGITTAL.value]],# noqa
                                             prediction=Prediction(s_predict,  # noqa
                                                                   s_predict_score))  # noqa
 
