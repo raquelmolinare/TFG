@@ -19,6 +19,13 @@ class BrainPlanesFileName(Enum):
     SAGITTAL = 'sagittal.png'
 
 
+BRAIN_PLANES_INDEX_LIST = {
+    BrainPlanes.AXIAL.value: 0,
+    BrainPlanes.CORONAL.value: 1,
+    BrainPlanes.SAGITTAL.value: 2
+}
+
+
 class AlzheimerGroups(Enum):
     CN = 'CN'
     MCI = 'MCI'

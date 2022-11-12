@@ -12,7 +12,8 @@ from werkzeug.utils import secure_filename
 from config.general_config import get_config
 from src.classes.img_classification import Prediction, ImgClassification
 from src.definitions.classes_constanst import ALLOWED_NIFTI_FILE_EXTENSION, \
-    ALLOWED_NIFTI_FILE_CONTENT_TYPE, BrainPlanesFileName, BrainPlanes
+    ALLOWED_NIFTI_FILE_CONTENT_TYPE, BrainPlanesFileName, BrainPlanes, \
+    BRAIN_PLANES_INDEX_LIST
 from src.classes.model_manager import ModelManager
 
 
@@ -144,18 +145,10 @@ class FileController:
         img = nib.load(nifti_file_path).get_fdata()
         self.__save_images_from_nifti_file(img, self.uuid_dir_path)
         images = []
-        file_path = os.path.join(self.uuid_dir_path, secure_filename(
-            BrainPlanesFileName.AXIAL.value))
-        axial = self.__load_image(file_path)
-        images.append(axial)
-        file_path = os.path.join(self.uuid_dir_path, secure_filename(
-            BrainPlanesFileName.CORONAL.value))
-        coronal = self.__load_image(file_path)
-        images.append(coronal)
-        file_path = os.path.join(self.uuid_dir_path, secure_filename(
-            BrainPlanesFileName.SAGITTAL.value))
-        sagittal = self.__load_image(file_path)
-        images.append(sagittal)
+        for plane_file_name in BrainPlanesFileName:
+            file_path = os.path.join(self.uuid_dir_path, secure_filename(plane_file_name.value))
+            plane_image = self.__load_image(file_path)
+            images.append(plane_image)
         return images
 
     @staticmethod
@@ -169,6 +162,44 @@ class FileController:
     @staticmethod
     def get_sagittal_prediction(sagittal_image):
         return ModelManager.predict_sagittal(sagittal_image)
+
+    def make_response_images(self, a_predict, axial_predict_score,
+                             c_predict, c_predict_score, s_predict,
+                             s_predict_score):
+        # Get predictions images
+        base64_images = self.__get_base64_images()
+
+        # result file prediction
+        axial_result = ImgClassification(plane=BrainPlanes.AXIAL.value,
+                                         img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.AXIAL.value]],
+                                         prediction=Prediction(a_predict,  # noqa
+                                                               axial_predict_score))  # noqa
+        coronal_result = ImgClassification(plane=BrainPlanes.CORONAL.value,
+                                           img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.CORONAL.value]],
+                                           prediction=Prediction(c_predict,  # noqa
+                                                                 c_predict_score))  # noqa
+        sagittal_result = ImgClassification(plane=BrainPlanes.SAGITTAL.value,  # noqa
+                                            img=base64_images[BRAIN_PLANES_INDEX_LIST[BrainPlanes.SAGITTAL.value]],
+                                            prediction=Prediction(s_predict,  # noqa
+                                                                  s_predict_score))  # noqa
+
+        return [axial_result, coronal_result, sagittal_result]
+
+    @staticmethod
+    def make_response(a_predict, axial_predict_score, c_predict,
+                      c_predict_score, s_predict, s_predict_score):
+
+        # result file prediction
+        axial_result = ImgClassification(plane=BrainPlanes.AXIAL.value,
+                                         prediction=Prediction(a_predict,  # noqa
+                                                               axial_predict_score))  # noqa
+        coronal_result = ImgClassification(plane=BrainPlanes.CORONAL.value,
+                                           prediction=Prediction(c_predict,  # noqa
+                                                                 c_predict_score))  # noqa
+        sagittal_result = ImgClassification(plane=BrainPlanes.SAGITTAL.value,  # noqa
+                                            prediction=Prediction(s_predict,  # noqa
+                                                                  s_predict_score))  # noqa
+        return [axial_result, coronal_result, sagittal_result]
 
     def classify_nifti_file(self, nifti_file, include_images=False):
         # Validate nifti_file
@@ -195,40 +226,14 @@ class FileController:
             self.get_sagittal_prediction(images[2])
 
         if include_images:
-            # Get predictions images
-            base64_images = self.__get_base64_images()
-
-            # result file prediction
-            axial_result = ImgClassification(plane=BrainPlanes.AXIAL.value,
-                                             img=base64_images[0],
-                                             prediction=Prediction(axial_prediction,  # noqa
-                                                                   axial_prediction_score))  # noqa
-            coronal_result = ImgClassification(plane=BrainPlanes.CORONAL.value,
-                                               img=base64_images[1],
-                                               prediction=Prediction(coronal_prediction,  # noqa
-                                                                     coronal_prediction_score))  # noqa
-            sagittal_result = ImgClassification(plane=BrainPlanes.SAGITTAL.value,  # noqa
-                                                img=base64_images[2],
-                                                prediction=Prediction(sagittal_prediction,  # noqa
-                                                                      sagittal_prediction_score))  # noqa
-
-            classification_result = [axial_result, coronal_result,
-                                     sagittal_result]
+            classification_result = self.make_response_images(axial_prediction, axial_prediction_score,   # noqa
+                                                              coronal_prediction, coronal_prediction_score, # noqa
+                                                              sagittal_prediction, sagittal_prediction_score)  # noqa
 
         else:
-            # result file prediction
-            axial_result = ImgClassification(plane=BrainPlanes.AXIAL.value,
-                                             prediction=Prediction(axial_prediction,  # noqa
-                                                                   axial_prediction_score))  # noqa
-            coronal_result = ImgClassification(plane=BrainPlanes.CORONAL.value,
-                                               prediction=Prediction(coronal_prediction,  # noqa
-                                                                     coronal_prediction_score))  # noqa
-            sagittal_result = ImgClassification(plane=BrainPlanes.SAGITTAL.value,  # noqa
-                                                prediction=Prediction(sagittal_prediction,  # noqa
-                                                                      sagittal_prediction_score))  # noqa
-
-            classification_result = [axial_result, coronal_result,
-                                     sagittal_result]
+            classification_result = self.make_response(axial_prediction, axial_prediction_score,  # noqa
+                                                       coronal_prediction, coronal_prediction_score,  # noqa
+                                                       sagittal_prediction, sagittal_prediction_score)  # noqa
 
         # Remove temp directory
         self.delete_temp_dir()
