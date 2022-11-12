@@ -45,6 +45,17 @@ ADNI
 AIBL
 MIRIAD
 multicéntrico
+CEAFA
+Universitat
+Oberta
+Catalunya
+UOC
+Pasqual
+Maragall
+Neuroimaging
+Biomarker
+bibliografia
+unsrt
 colorlinks
 linkcolor
 urlcolor
