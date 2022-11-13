@@ -221,14 +221,16 @@
     %
 
     \newpage
-    \bibliography{bibliografia}\addcontentsline{toc}{chapter}{Bibliografía}
-    \bibliographystyle{unsrt}
-
-    %\appendix
+    \appendix\addcontentsline{toc}{chapter}{Apéndices}
+    \input{apendices/ADNI}
     %\input{apendices/manual_usuario/manual_usuario}
     %%\input{apendices/paper/paper}
     %\input{glosario/entradas_glosario}
     % \addcontentsline{toc}{chapter}{Glosario}
     % \printglossary
+
+    \newpage
+    \bibliography{bibliografia}\addcontentsline{toc}{chapter}{Bibliografía}
+    \bibliographystyle{unsrt}
 
 \end{document}
