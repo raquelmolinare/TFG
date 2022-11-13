@@ -63,6 +63,14 @@ multicéntricos
 neurocientíficos
 Neuro
 predictores
+ResNet
+CaffeNet
+GoogLeNet
+VGGNet
+AlexNet
+Kanban
+HU
+HUs
 bibliografia
 unsrt
 colorlinks
