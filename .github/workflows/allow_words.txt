@@ -54,6 +54,15 @@ Pasqual
 Maragall
 Neuroimaging
 Biomarker
+TFG
+Weiner
+LONI
+Neuro
+USC
+multicéntricos
+neurocientíficos
+Neuro
+predictores
 bibliografia
 unsrt
 colorlinks
