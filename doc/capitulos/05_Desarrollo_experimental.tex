@@ -1,0 +1,81 @@
+\chapter{Análisis y Desarrollo Experimental}\label{ch:analisis-y-desarrollo-experimental}
+En este capítulo se recoge el estudio de técnicas del DL para el diagnóstico del Alzheimer, pasando por las 
+herramientas y los datos utilizados hasta la experimentación y el análisis de los resultados obtenidos.
+
+\section{Presentación del problema a resolver}\label{sec:presentacion-del-problema-a-resolver}
+Tras la investigación del estado actual de la literatura en este ámbito, se recopilan los siguientes puntos sobre el DL
+para clasificación de la EA:
+
+\begin{itemize}
+    \item El Transfer Learning es la mejor técnica de entrenamiento.
+    \item Los datasets balanceados ofrecen mejores resultados, y más fiables, en la clasificación de imágenes,
+    pero la limitación de disponibilidad de biomarcadores del seguimiento de la EA puede suponer un obstáculo.
+    \item La prueba más frecuente para el diagnóstico de la enfermedad es la MRI.
+    \item No se clarifica qué plano cerebral (axial, coronal o sagital) es mejor utilizar y bajo qué diferencias de
+    rendimiento.
+    \item No se realizan comparativas de rendimiento entre distinto número de clases. \\
+\end{itemize}
+
+Se propone desarrollar un sistema de aprendizaje profundo a partir de MRI con el cual:
+
+\begin{itemize}
+    \item Realizar un análisis sobre qué plano cerebral ofrece mejores resultados en el diagnóstico de la EA, ya que se
+    tiene en cuenta que las redes neuronales de 3 dimensiones requieren de una capacidad computacional muy alta.
+    \item Realizar una comparativa del rendimiento de la clasificación entre 2 y 3 clases: Cognitivamente normal frente 
+    a Alzheimer y cognitivamente normal frente a deterioro cognitivo leve frente Alzheimer.
+\end{itemize}
+
+\section{Conjunto de datos empleado}\label{sec:conjunto-de-datos-empleado}
+
+\section{Herramientas utilizadas}\label{sec:herramientas-utilizadas}
+Para realizar este estudio es necesario utilizar una serie de herramientas que faciliten y hagan posible la 
+experimentación.
+Hay que tener en cuenta dos grupos de herramientas: Las herramientas para trabajar con biomarcadores de tipo MRI y las 
+herramientas para trabajar con técnicas de DL.
+
+\subsection{Herramientas para trabajar con biomarcadores MRI de tipo NIfTI}
+\label{subsec:herramientas-para-trabajar-con-biomarcadores-mri-de-tipo-nifti}
+Para poder realizar el sistema de clasificación es necesario realizar un procesamiento de los archivos de MRI, de 
+manera que se obtengan cortes de 2 dimensiones a partir del archivo en 3 dimensiones.
+Para conseguirlo se ha hecho uso de la librería para python \textbf{NiBabel}, que permite la lectura y escritura  de 
+archivos de neuroimagen, en nuestro caso del formato \textit{NIfTI}.
+Por lo que mediante esta librería se puede cargar una MRI, extraer el corte o slice deseado y guardarlo.
+
+Además, para la visualización de este tipo de archivos se requiere de software de visualización de imágenes específico.
+Hay múltiples herramientas disponibles para ello según la finalidad que se quiera conseguir.
+Para visualizar archivos en formato \textit{NIfTI} se ha hecho uso del software \textbf{MRIcron}, que ha requerido 
+instalación y con el que se ha podido realizar una visualización de múltiples capas de la MRI. También se ha hecho uso 
+del recurso \textbf{IDA} online del que se obtienen los datos de la base de datos \textit{ADNI} y del que se detalla más
+información en el el apartado~\ref{ch:aped.a}.
+Este recurso integra un visualizador de neuroimágenes.
+
+
+\subsection{Herramientas para trabajar con técnicas de Deep Learning}
+\label{subsec:herramientas-para-trabajar-con-tecnicas-de-deep-learning}
+Como bien se muestra en el apartado~\ref{sec:datos-y-herramientas-estado-del-arte}, existe un amplio abanico de
+posibilidades en cuanto a herramientas que permiten la experimentación de técnicas de DL.
+
+De entre todas ellas se ha optado por utilizar \textbf{TensorFlow} y \textbf{Keras}, no solo por ser las más utilizadas
+en la literatura, sino también porque son las que ofrecen una mejor documentación para su uso.
+
+Para trabajar con imágenes 2D y por lo tanto con vectores y matrices se hace uso de la biblioteca de \textit{Python}
+\textbf{NumPy}.
+
+Para visualizar, tanto las imágenes de los planos cerebrales obtenidos como para la representación de las gráficas de
+resultados se usa \textbf{Matplotlib}.
+
+Por lo tanto el lenguaje de programación con el que se va a trabajar en este TFG y en concreto en el desarrollo
+experimental es \textbf{Python}.
+
+\section{Procesamiento de biomarcadores}
+
+\section{Estrategias de entrenamiento}
+\subsection{Transfer Learning}
+\subsection{Data Augmentation}
+
+\section{Arquitectura del modelo profundo utilizado}
+
+\section{Experimentos}
+\subsection{Comparativa del rendimiento de los planos cerebrales}
+
+\section{Conclusión}
