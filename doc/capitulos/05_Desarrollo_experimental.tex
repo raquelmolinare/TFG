@@ -26,6 +26,48 @@ Se propone desarrollar un sistema de aprendizaje profundo a partir de MRI con el
 \end{itemize}
 
 \section{Conjunto de datos empleado}\label{sec:conjunto-de-datos-empleado}
+El conjunto de biomarcadores MRI que se ha utilizado se ha obtenido de la base de datos ADNI, que es un estudio
+longitudinal multicéntrico en el que se desarrollan biomarcadores genéticos, bioquímicos y de imagen para la detección
+temprana y el seguimiento de la EA, se habla más en profundidad sobre esta base de datos en el
+apartado~\ref{ch:aped.a}.
+Cabe destacar que también intentó hacer uso de la base de datos OASIS, de forma que se obtuviera un número mayor de
+datos y poder prevenir los posibles problemas por falta de datos, pero no fue posible ya que no se aprobó la solicitud
+de acceso realizada.
+
+Para la selección de los biomarcadores MRI a utilizar se han dividido 3 grupos de investigación según el grado de EA
+del sujeto, diferenciándose:
+\begin{itemize}
+    \item \textbf{Cognitivamente normal} (en adelante este grupo se denominará \textbf{CN}): Sujetos sanos.
+    \item Sujetos con un \textbf{deterioro cognitivo leve}, del inglés Mild Cognitive Impairment (en adelante este grupo
+    se denominará \textbf{MCI})
+    \item Sujetos con \textbf{Alzheimer} diagnosticado (en adelante este grupo se denominará \textbf{AD}). \\
+\end{itemize}
+
+Para la realización de la experimentación se han utilizado biomarcadores MRI de tipo \textit{NIfTI} pertenecientes a un
+subconjunto de datos sometidos a un post-procesamiento que se comenta en la sección~\ref{subsec:post-procesamiento-en-adni}.
+
+En el subconjunto de datos disponibles, los biomarcadores de clase AD son más limitados que los de clase CN y MCI.
+Siendo la distribución de los datos la siguiente:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./imgs/histograma-de-clases}
+    \caption{Histograma de clases}
+    \label{fig:histograma-de-clases}
+\end{figure}
+
+Como se puede apreciar en la Figura~\ref{fig:histograma-de-clases}, existe un desbalance de clases, habiendo 998
+neuroimágenes de tipo CN, 1832 de tipo MCI y 602 de tipo AD.
+
+Para realizar el entrenamiento con un datasets balanceado se utilizan todos los datos de tipo AD disponibles y se
+realiza un submuestreo de las clases mayoritarias para equilibrar las clases.
+El uso de la técnica de submuestreo presenta una desventaja ya que se pierde información, pero se elige esta técnica
+frente a la técnica de sobremuestreo, ya que esta última consiste en aumentar los datos de la clase minoritaria, lo
+que puede llevar a un sobreajuste y teniendo en cuenta que ya el conjunto de datos general del que se dispone es muy
+limitado y es posible que se obtenga un sobreajuste no se quieren multiplicar las posibilidades.
+
+De modo que el conjunto completo de datos balanceado que se utiliza para extraer los cortes axial, coronal y sagital
+está formado por \textbf{1806} neuroimágenes en total.
 
 \section{Herramientas utilizadas}\label{sec:herramientas-utilizadas}
 Para realizar este estudio es necesario utilizar una serie de herramientas que faciliten y hagan posible la 
@@ -67,7 +109,63 @@ resultados se usa \textbf{Matplotlib}.
 Por lo tanto el lenguaje de programación con el que se va a trabajar en este TFG y en concreto en el desarrollo
 experimental es \textbf{Python}.
 
-\section{Procesamiento de biomarcadores}
+\section{Procesamiento de biomarcadores}\label{sec:procesamiento-de-biomarcadores}
+
+\subsection{Post-procesamiento en ADNI}\label{subsec:post-procesamiento-en-adni}
+Tal y como se ha comentado en ~\ref{sec:conjunto-de-datos-empleado}, el conjunto de datos utilizado en este estudio se
+ha obtenido de un subconjunto de neuroimágenes de ADNI al que se le aplica un procesamiento, con el objetivo de extraer
+la información más importante y descartar la irrelevante.
+
+Para la realización de este procesamiento, al que ADNI denomina como post-procesamiento, ya que se  en una fase
+posterior a la examinación del sujeto, se hace uso de la herramienta FreeSurfer y  se aplican las siguiente técnicas:
+
+\begin{itemize}
+    \item \textbf{Registro de la imagen}: proceso de transformación a un sistema de coordenadas común.
+    Consiguiendo que en distintas imágenes cerebrales los pixeles correspondan en posición.
+    \item \textbf{Segmentación del cráneo}: proceso de eliminación del cráneo para aislar la masa cerebral.
+    \item \textbf{Normalización de la intensidad}: proceso de corrección de intensidad de la imágen.
+    Se aplica N3 que es un algoritmo de afilado de picos de histograma.
+\end{itemize}
+
+En la Figura~\ref{fig:adni-mri} se puede ver una comparativa entre una MRI en bruto con MP-RAGE y la misma post-procesada con
+FreeSurfer.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./imgs/adni-mri}
+    \caption{Técnicas de procesamiento de MRI en ADNI. De izquierda a derecha: MRI en bruto con MP-RAGE y MRI
+    post-procesada con FreeSurfer. Fuente: Alzheimer’s Disease Neuroimaging Initiative~\cite{img-adni-mri}. }
+    \label{fig:adni-mri}
+\end{figure}
+
+
+\subsection{Creación de las imágenes para el entrenamiento}\label{subsec:creacion-de-las-imagenes-para-el-entrenamiento}
+Para evaluar qué plano cerebral ofrece mejores resultados para el diagnóstico de la EA a partir de biomarcadores MRI es
+necesario obtener imágenes 2D a partir de los archivos de MRI \textit{NIfTI}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./imgs/planos-cerebrales}
+    \caption{Planos Cerebrales. Fuente: Anatomical Planes por Casey Henley~\cite{img-planos-cerebrales}. }
+    \label{fig:planos-cerebrales}
+\end{figure}
+
+Para ello mediante un script de python se leen las imágenes 3D, se generan los cortes correspondientes a los planos
+usando la capa de central como corte del plano para extraer la mayor información posible y se guardan los cortes
+generados en carpetas dedicadas a cada plano.
+
+De manera que el conjunto de resonancias magnéticas del que se extraen los cortes es el mismo para los tres subconjuntos
+que se obtienen.
+De esta forma se garantiza que a la hora de concluir la evaluación, los cortes han surgido de las mismas resonancias
+magnéticas y los resultados serán fiables.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./imgs/MRI-planos-cerebrales}
+    \caption{MRI en los planos axial, sagital y coronal.
+    Fuente: Trakia Journal of Sciences~\cite{img-mri-planos-cerebrales}. }
+    \label{fig:mri-planos-cerebrales}
+\end{figure}
 
 \section{Estrategias de entrenamiento}
 \subsection{Transfer Learning}
