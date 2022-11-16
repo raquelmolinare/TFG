@@ -5,7 +5,7 @@ all: $(DOC) clean
 
 # Generate pdf document
 $(DOC): $(DOC_NAME).tex
-	pdflatex $< $* && pdflatex $< && pdflatex $<
+	pdflatex $< && bibtex $(DOC_NAME) && pdflatex $< && pdflatex $<
 
 # Spell checker
 spellcheck:

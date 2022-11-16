@@ -1,0 +1,54 @@
+\chapter{Conclusiones y Trabajos Futuros}\label{ch:conclusiones-y-trabajos-futuros}
+
+\section{Conclusiones}\label{sec:conclusiones}
+Con este proyecto se pretendía realizar un estudio de técnicas de DL para el diagnóstico de la EA.
+En concreto se centró el objetivo general del estudio en identificar con qué plano cerebral se obtiene mejor rendimiento
+a partir de biomarcadores de tipo MRI. En la literatura actual no quedaba bien definido qué plano era mejor.
+
+Tras realizar un análisis de la base de datos se observó que el conjunto de datos disponible era limitado y no estaba
+balanceado por lo que se ha balanceado y realizado la extracción de imágenes de 2D de los biomarcadores MRI de 3D,
+generando los datasets de entrenamiento correspondientes a los casos de análisis.
+Añadiendo también una comparación entre la clasificación de imágenes usando 2 clases, CN y AD, y usando 3 clases, CN,
+MCI y AD, de manera que se realiza un estudio más en profundidad de estas técnicas para la medición del deterioro
+cognitivo.
+
+Los resultados muestran que una clasificación mediante 2 clases proporciona mucho mejor rendimiento que la clasificación
+mediante 3 clases, sucediendo con esta tendencia para todas las vistas cerebrales y que se debe fundamentalmente a que
+el conjunto de datos es reducido.
+
+En cuanto a la pregunta final, sobre qué plano es mejor, al utilizarse el mismo conjunto de biomarcadores para la
+extracción de los cortes 2D, queda demostrado que el plano coronal es el mejor de los 3, con un rendimiento del 72\%
+frente al 69\% del plano axial y el 53\% del plano sagital.
+
+Además, teniendo en cuenta que el plano coronal engloba las tres regiones más importantes del cerebro relacionadas con
+la EA como son el hipocampo, la corteza y los ventrículos.
+Se concluye que los resultados son acordes a lo esperado.
+Pudiendo servir como guía para futuras conclusiones en esta área de investigación.
+
+Por otra parte también se buscaba facilitar el uso de estas técnicas en una aplicación real.
+De lo cual surge Alz Care, una pequeña aplicación que integra un sistema DL, en este caso el
+previamente obtenido en el desarrollo experimental, pero que puede ser escalable a otros modelos.
+Esta aplicación permite al usuario conocer el grado de deterioro cognitivo de una MRI ,y la visualización
+de los planos incluidos en la misma, de una manera sencilla y sin tener que instalar ninguna herramienta de
+visualización o programa externo.
+
+Pudiendo resultar de gran utilidad en la labor de los médicos o personas de entornos clínicos que tengan este tipo de
+necesidades.
+
+
+\section{Trabajos Futuros}\label{sec:trabajos-futuros}
+Con este TFG se obtiene respuesta a las preguntas iniciales, pero con un rendimiento que podría mejorarse con la
+utilización de un mayor conjunto de datos.
+Como podría ser combinando los biomarcadores de múltiples bases de datos o probando otras técnicas o arquitecturas.
+
+En cuánto a la aplicación web, se ha considerado como un mínimo producto viable.
+Sería interesante ampliarla y para ello se establecen tres ideas o puntos de partida que no ha sido posible incluir en
+este proyecto por la extensión del mismo.
+Las tres ideas que se proponen son:
+\begin{itemize}
+    \item Ampliar la lógica para que se utilice como aplicación de gestión de paciente de EA en la que se incluya un
+    modelo que clasifique más clases y, por lo tanto, pueda servir como seguimiento de la enfermedad.
+    \item Agrandar el diagrama arquitectónico de la solución y formar una aplicación que integre más enfermedades y más
+    sistemas de clasificación.
+    \item Incluir un visualizador completo de MRI en línea.
+\end{itemize}
