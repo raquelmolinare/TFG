@@ -256,7 +256,211 @@ fase 0.00001, haciendo uso del optimizador Adam (Adaptive moment estimation) en 
 RMSprop (Root Mean Square Propagation) en la segunda.
 
 
-\section{Experimentos}
-\subsection{Comparativa del rendimiento de los planos cerebrales}
+\section{Experimentos}\label{sec:experimentos}
+En esta sección se muestran los resultados obtenidos.
+Se ha utilizado el mismo modelo para hacer la comparativa, cambiando únicamente los datos de entrenamiento en base a
+cada caso.
+
+\subsection{Análisis de resultados}\label{subsec:analisis-de-resultados}
+Para realizar la evaluación de los resultados y obtener una conclusión al estudio se va a utilizar de
+métrica la precisión o \textit{accuracy}.
+
+    \[accuracy=\frac{VP+VN}{VP+VN+FP+FN}\]
+
+La precisión establece qué porcentaje de datos han sido etiquetados de forma correcta por el
+Siendo o \textit{VP} y o \textit{VN} los verdaderos positivos y verdaderos negativos respectivamente,
+y o \textit{FP} y o \textit{FN} los falsos positivos y falsos negativos respectivamente.
+
+Puesto que el dataset con el que se trabaja en este estudio está balanceado esta métrica es relevante para realizar
+la evaluación.
+
+Además de cada caso se va a incluir la evolución del modelo durante el entrenamiento, la matriz de confusión y el
+Informe de clasificación o o \textit{Classification Report}.
+
+
+\subsection{Resultados del plano Axial}\label{subsec:resultados-del-plano-axial}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/axial/CN_AD_output_AXIAL}
+    \caption{Evolución del modelo durante el entrenamiento: plano Axial. Comparativa CN-AD. }
+    \label{fig:axial-cn-ad}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/axial/CN_MCI_AD_output_AXIAL}
+    \caption{Evolución del modelo durante el entrenamiento: plano Axial. Comparativa CN-MCI-AD. }
+    \label{fig:axial-c-mci-ad}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{r r r r r}
+        & precision & recall & f1-score & support \\
+        AD & 0.70 & 0.50 & 0.58 & 14 \\
+        CN & 0.68 & 0.83 & 0.75 & 18 \\
+        & & & & \\
+        accuracy &  &  & 0.69 & 32 \\
+        macro avg & 0.69 & 0.67 & 0.67 & 32 \\
+        weighted avg & 0.69 & 0.69 & 0.68 & 32 \\
+    \end{tabular}
+    \caption{Classification Report del plano Axial. Comparativa CN-AD}
+    \label{tab:cr-axial-cn-ad}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{r r r r r}
+        & precision & recall & f1-score & support \\
+        AD & 0.80 & 0.67 & 0.73 & 12 \\
+        CN & 0.50 & 0.64 & 0.56 & 11 \\
+        MCI & 0.25 & 0.22 & 0.24 & 9 \\
+        & & & & \\
+        accuracy &  &  & 0.53 & 32 \\
+        macro avg & 0.52 & 0.51 & 0.51 & 32 \\
+        weighted avg & 0.54 & 0.53 & 0.53 & 32 \\
+    \end{tabular}
+    \caption{Classification Report del plano Axial. Comparativa CN-MCI-AD}
+    \label{tab:cr-axial-cn-mci-ad}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/axial/CN_AD_cm_AXIAL}
+    \caption{Matriz de confusión del plano Axial. Comparativa CN-AD. }
+    \label{fig:mc-axial-cn-ad}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/axial/CN_MCI_AD_cm_AXIAL}
+    \caption{Matriz de confusión del plano Axial. Comparativa CN-MCI-AD. }
+    \label{fig:mc-axial-cn-mci-ad}
+\end{figure}
+
+
+\subsection{Resultados del plano Coronal}\label{subsec:resultados-del-plano-coronal}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/coronal/CN_AD_output_CORONAL}
+    \caption{Evolución del modelo durante el entrenamiento: plano Coronal. Comparativa CN-AD. }
+    \label{fig:coronal-cn-ad}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/coronal/CN_MCI_AD_output_CORONAL}
+    \caption{Evolución del modelo durante el entrenamiento: plano Coronal. Comparativa CN-MCI-AD. }
+    \label{fig:coronal-c-mci-ad}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{r r r r r}
+        & precision & recall & f1-score & support \\
+        AD & 0.83 & 0.59 & 0.69 & 17 \\
+        CN & 0.65 & 0.87 & 0.74 & 15 \\
+        & & & & \\
+        accuracy &  &  & 0.72 & 32 \\
+        macro avg & 0.74 & 0.73 & 0.72 & 32 \\
+        weighted avg & 0.75 & 0.72 & 0.71 & 32 \\
+    \end{tabular}
+    \caption{Classification Report del plano Coronal. Comparativa CN-AD}
+    \label{tab:cr-coronal-cn-ad}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{r r r r r}
+        & precision & recall & f1-score & support \\
+        AD & 0.67 & 0.50 & 0.57 & 8 \\
+        CN & 0.62 & 0.50 & 0.56 & 10 \\
+        MCI & 0.56 & 0.71 & 0.63 & 14 \\
+        & & & & \\
+        accuracy &  &  & 0.59 & 32 \\
+        macro avg & 0.62 & 0.57 & 0.58 & 32 \\
+        weighted avg & 0.61 & 0.59 & 0.59 & 32 \\
+    \end{tabular}
+    \caption{Classification Report del plano Coronal. Comparativa CN-MCI-AD}
+    \label{tab:cr-coronal-cn-mci-ad}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/coronal/CN_AD_cm_CORONAL}
+    \caption{Matriz de confusión del plano Coronal. Comparativa CN-AD. }
+    \label{fig:mc-coronal-cn-ad}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/coronal/CN_MCI_AD_cm_CORONAL}
+    \caption{Matriz de confusión del plano Coronal. Comparativa CN-MCI-AD. }
+    \label{fig:mc-coronal-cn-mci-ad}
+\end{figure}
+
+\subsection{Resultados del plano Sagital}\label{subsec:resultados-del-plano-sagital}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/sagittal/CN_AD_output_SAGITTAL}
+    \caption{Evolución del modelo durante el entrenamiento: plano Sagital. Comparativa CN-AD. }
+    \label{fig:sagital-cn-ad}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/sagittal/CN_MCI_AD_output_SAGITTAL}
+    \caption{Evolución del modelo durante el entrenamiento: plano Sagital. Comparativa CN-MCI-AD. }
+    \label{fig:sagital-c-mci-ad}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{r r r r r}
+        & precision & recall & f1-score & support \\
+        AD & 0.64 & 0.67 & 0.65 & 21 \\
+        CN & 0.30 & 0.27 & 0.29 & 11 \\
+        & & & & \\
+        accuracy &  &  & 0.53 & 32 \\
+        macro avg & 0.47 & 0.47 & 0.47 & 32 \\
+        weighted avg & 0.52 & 0.53 & 0.53 & 32 \\
+    \end{tabular}
+    \caption{Classification Report del plano Sagital. Comparativa CN-AD}
+    \label{tab:cr-sagital-cn-ad}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{r r r r r}
+        & precision & recall & f1-score & support \\
+        AD & 0.48 & 0.62 & 0.54 & 16 \\
+        CN & 1.00 & 0.10 & 0.18 & 10 \\
+        MCI & 0.20 & 0.33 & 0.25 & 6 \\
+        & & & & \\
+        accuracy &  &  & 0.41 & 32 \\
+        macro avg & 0.56 & 0.35 & 0.32 & 32 \\
+        weighted avg & 0.59 & 0.41 & 0.37 & 32 \\
+    \end{tabular}
+    \caption{Classification Report del plano Sagital. Comparativa CN-MCI-AD}
+    \label{tab:cr-sagital-cn-mci-ad}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/sagittal/CN_AD_cm_SAGITTAL}
+    \caption{Matriz de confusión del plano Sagital. Comparativa CN-AD. }
+    \label{fig:mc-sagital-cn-ad}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/resultados/sagittal/CN_MCI_AD_cm_SAGITTAL}
+    \caption{Matriz de confusión del plano Sagital. Comparativa CN-MCI-AD. }
+    \label{fig:mc-sagital-cn-mci-ad}
+\end{figure}
+
 
 \section{Conclusión}
