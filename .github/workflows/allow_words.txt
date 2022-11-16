@@ -4,7 +4,7 @@ María
 Molina
 Python
 Reche
-Rodriguez
+Rodríguez
 Sánchez
 imagenológico
 Computarizada
@@ -107,6 +107,12 @@ Figma
 backend
 smorest
 frontend
+UI
+sagittal
+Sagittal
+Biomarkers
+Colab
+Neuroimagen
 bibliografia
 unsrt
 colorlinks
