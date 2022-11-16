@@ -9,5 +9,4 @@ test("renders learn react link", () => {
 
   const button = screen.getAllByText(/Clasificar/i);
   expect(button).toBeDefined();
-
 });
