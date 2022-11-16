@@ -22,7 +22,7 @@ Se propone desarrollar un sistema de aprendizaje profundo a partir de MRI con el
     \item Realizar un análisis sobre qué plano cerebral ofrece mejores resultados en el diagnóstico de la EA, ya que se
     tiene en cuenta que las redes neuronales de 3 dimensiones requieren de una capacidad computacional muy alta.
     \item Realizar una comparativa del rendimiento de la clasificación entre 2 y 3 clases: Cognitivamente normal frente 
-    a Alzheimer y cognitivamente normal frente a deterioro cognitivo leve frente Alzheimer.
+    a Alzheimer y cognitivamente normal frente a deterioro cognitivo leve frente Alzheimer. \\
 \end{itemize}
 
 \section{Conjunto de datos empleado}\label{sec:conjunto-de-datos-empleado}
@@ -51,7 +51,7 @@ Siendo la distribución de los datos la siguiente:
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{./imgs/histograma-de-clases}
+    \includegraphics[width=0.6\textwidth]{./imgs/histograma-de-clases}
     \caption{Histograma de clases}
     \label{fig:histograma-de-clases}
 \end{figure}
@@ -106,6 +106,9 @@ Para trabajar con imágenes 2D y por lo tanto con vectores y matrices se hace us
 Para visualizar, tanto las imágenes de los planos cerebrales obtenidos como para la representación de las gráficas de
 resultados se usa \textbf{Matplotlib}.
 
+Para obtener las métricas para evaluar los resultados obtenidos del entrenamiento se hace uso de la librería
+\textbf{scikit-learn}.
+
 Por lo tanto el lenguaje de programación con el que se va a trabajar en este TFG y en concreto en el desarrollo
 experimental es \textbf{Python}.
 
@@ -124,7 +127,7 @@ posterior a la examinación del sujeto, se hace uso de la herramienta FreeSurfer
     Consiguiendo que en distintas imágenes cerebrales los pixeles correspondan en posición.
     \item \textbf{Segmentación del cráneo}: proceso de eliminación del cráneo para aislar la masa cerebral.
     \item \textbf{Normalización de la intensidad}: proceso de corrección de intensidad de la imágen.
-    Se aplica N3 que es un algoritmo de afilado de picos de histograma.
+    Se aplica N3 que es un algoritmo de afilado de picos de histograma. \\
 \end{itemize}
 
 En la Figura~\ref{fig:adni-mri} se puede ver una comparativa entre una MRI en bruto con MP-RAGE y la misma post-procesada con
@@ -137,7 +140,6 @@ FreeSurfer.
     post-procesada con FreeSurfer. Fuente: Alzheimer’s Disease Neuroimaging Initiative~\cite{img-adni-mri}. }
     \label{fig:adni-mri}
 \end{figure}
-
 
 \subsection{Creación de las imágenes para el entrenamiento}\label{subsec:creacion-de-las-imagenes-para-el-entrenamiento}
 Para evaluar qué plano cerebral ofrece mejores resultados para el diagnóstico de la EA a partir de biomarcadores MRI es
@@ -167,11 +169,92 @@ magnéticas y los resultados serán fiables.
     \label{fig:mri-planos-cerebrales}
 \end{figure}
 
-\section{Estrategias de entrenamiento}
-\subsection{Transfer Learning}
-\subsection{Data Augmentation}
+\section{Estrategias de entrenamiento}\label{sec:estrategias-de-entrenamiento}
+Tras la conclusión de la revisión de la literatura se ha decidido aplicar en este estudio las técnicas de Transferencia
+de Aprendizaje o Transfer Learning (en adelante TL) y Aumento de datos o Data Augmentation.
+En este apartado se explica el fundamento de ambas técnicas.
 
-\section{Arquitectura del modelo profundo utilizado}
+\subsection{Transfer Learning}\label{subsec:transfer-learning}
+El TL es una técnica que consiste en utilizar modelos probados y pre-entrenados, con un conjunto de datos igual o
+distinto al problema a resolver, para volver a entrenarlos con el conjunto de datos relativos al problema.
+De modo que se requiere menos tiempo de cálculo o recursos que si se construye el modelo desde cero.
+
+Tal y como se ha concluido en la revisión de la literatura, esta técnica es útil y ofrece un gran número de ventajas,
+por lo tanto en este estudio se ha aplicado esta técnica utilizando una arquitectura pre-entrenada con los pesos de
+\textit{ImageNet}.
+
+En cuánto a la forma de aplicar TL se ha optado por aplicar \textit{fine-tuning} ya que al utilizar esta técnica se
+aprovechan las ventajas que aporta el uso de transferencia de aprendizaje para conjuntos de datos distintos a los del
+entrenamiento original.
+Para ello los pasos son:
+\begin{itemize}
+    \item Se crea el modelo base pre-entrenado.
+    \item Se reconstruye la parte superior del modelo adaptándola al problema que se quiera solucionar.
+    \item Se congela la base convolucional para la extracción de características.
+    \item Se entrena el modelo sólo con los pesos de la última capa, de manera que se aprovechan las características
+    aprendidas en la última capa para la resolución del problema.
+    \item Se descongelan las capas superiores del modelo, se escoge la capa desde la que quiere aplicar
+    \textit{fine-tuning} y se congelan todas las capas previas a esa.
+    \item Se re-entrena el modelo durante un número de épocas con el objetivo de aumentar la precisión del modelo.\\
+\end{itemize}
+
+\subsection{Data Augmentation}\label{subsec:data-augmentation}
+Esta técnica consiste en aumentar la diversidad del conjunto de entrenamiento mediante la aplicación de transformaciones
+aleatorias pero realistas.
+
+Las técnicas de aumento de datos han demostrado una mejora del rendimiento de la clasificación sin la necesidad de
+recoger nuevos datos cuando estos son limitados, y teniendo en cuenta que para este estudio los datos disponibles son
+reducidos, se opta por aplicarla en la experimentación.
+
+\section{Arquitectura del modelo profundo utilizado}\label{sec:arquitectura-del-modelo-profundo-utilizado}
+Se ha elegido \textbf{EfficientNetB7} como modelo pre-entrenado porque es el modelo de aprendizaje profundo pre-entrenado
+con mejor rendimiento que ofrece Keras~\cite{keras-applications}.
+
+Las \textit{EfficientNets} son una familia de modelos de clasificación de imágenes que alcanzan una alta precisión,
+pero siendo en orden de magnitud más pequeños y rápidos que otros modelos~\cite{efficientnets}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./imgs/redimiento-efficientnet}
+    \caption{Rendimiento de EfficientNet en comparación con otras arquitecturas. Fuente:~\cite{efficientnets-models}. }
+    \label{fig:redimiento-efficientnet}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./imgs/efficientnetb7-model-architecture}
+    \caption{Arquitectura del modelo EfficientNetB7. Fuente:~\cite{efficientnetb7-model-architecture}. }
+    \label{fig:efficientnetb7-model-architecture}
+\end{figure}
+
+\section{Estrategia de entrenamiento}\label{sec:estrategia-de-entrenamiento}
+En este caso al aplicar \textit{fine-tuning}, a la hora de reconstruir la parte superior del modelo, se han añadido las
+siguientes capas con el objetivo de prevenir y reducir el \textit{overfitting} o \textit{sobreajuste}:
+\begin{itemize}
+    \item Capa Global Average Pooling para la regularización estructural y evitar el sobreajuste de la estructura global.
+    \item Capa Dropout con un  rate de 0.3 para que nuestro modelo sea más robusto.
+    \item Capa Batch Normalization para mejorar el funcionamiento, velocidad y estabilidad. \\
+\end{itemize}
+
+En cuanto a la aplicación de Data Augmentation, se ha incluido como capa de preprocesamiento del modelo formando parte
+del mismo, de esta forma a la hora de exportar el modelo e implementarlo, se estandarizarán de manera automática las
+imágenes evitando que haya que repetir este preprocesamiento en el lado del servidor.
+Lo que resulta una ventaja de cara a la implementación de la aplicación web que forma parte de este proyecto.
+
+Para aumentar el conjunto de entrenamiento se ha incluido una capa para rotar la imagen y otra para voltear horizontal
+y verticalmente.
+
+También se incluye en la capa de preprocesamiento del modelo un redimensionado de las imágenes a 224×224 píxeles para
+no causar conflictos con la entrada del modelo base.
+
+Al aplicar TL se han seguido los pasos comentados en el apartado~\ref{subsec:transfer-learning} y se ha utilizado de
+referencia el análisis de la literatura y la documentación de Keras y TensorFlow.
+De modo que se ha definido un tamaño de \textit{batch} de 32, se han establecido el número de épocas iniciales y de re-entreno
+a 10, formando un total de épocas de 20 y la capa en la que se va a aplicar \textit{fine-tuning} a 20.
+El valor de la tasa de aprendizaje utilizado en la primera fase se ha establecido con un rate de 0.0001 y en la segunda
+fase 0.00001, haciendo uso del optimizador Adam (Adaptive moment estimation) en la primera fase y
+RMSprop (Root Mean Square Propagation) en la segunda.
+
 
 \section{Experimentos}
 \subsection{Comparativa del rendimiento de los planos cerebrales}
