@@ -267,9 +267,9 @@ métrica la precisión o \textit{accuracy}.
 
     \[accuracy=\frac{VP+VN}{VP+VN+FP+FN}\]
 
-La precisión establece qué porcentaje de datos han sido etiquetados de forma correcta por el
-Siendo o \textit{VP} y o \textit{VN} los verdaderos positivos y verdaderos negativos respectivamente,
-y o \textit{FP} y o \textit{FN} los falsos positivos y falsos negativos respectivamente.
+La precisión establece qué porcentaje de datos han sido etiquetados de forma correcta por el modelo.
+Siendo \textit{VP} y \textit{VN} los verdaderos positivos y verdaderos negativos respectivamente,
+y \textit{FP} y \textit{FN} los falsos positivos y falsos negativos respectivamente.
 
 Puesto que el dataset con el que se trabaja en este estudio está balanceado esta métrica es relevante para realizar
 la evaluación.
@@ -282,13 +282,13 @@ Informe de clasificación o o \textit{Classification Report}.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/axial/CN_AD_output_AXIAL}
         \caption{Comparativa CN-AD. }
         \label{fig:axial-cn-ad}
     \end{subfigure}
     \hspace*{\fill}
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/axial/CN_MCI_AD_output_AXIAL}
         \caption{Comparativa CN-MCI-AD. }
         \label{fig:axial-c-mci-ad}
@@ -329,13 +329,13 @@ Informe de clasificación o o \textit{Classification Report}.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/axial/CN_AD_cm_AXIAL}
         \caption{Comparativa CN-AD. }
         \label{fig:mc-axial-cn-ad}
     \end{subfigure}
     \hspace*{\fill}
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/axial/CN_MCI_AD_cm_AXIAL}
         \caption{Comparativa CN-MCI-AD. }
         \label{fig:mc-axial-cn-mci-ad}
@@ -353,13 +353,13 @@ En la clasificación de tres clases el etiquetado de la clase intermedia MCI ha 
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/coronal/CN_AD_output_CORONAL}
         \caption{Comparativa CN-AD. }
         \label{fig:coronal-cn-ad}
     \end{subfigure}
     \hspace*{\fill}
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/coronal/CN_MCI_AD_output_CORONAL}
         \caption{Comparativa CN-MCI-AD. }
         \label{fig:coronal-c-mci-ad}
@@ -400,13 +400,13 @@ En la clasificación de tres clases el etiquetado de la clase intermedia MCI ha 
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/coronal/CN_AD_cm_CORONAL}
         \caption{Comparativa CN-AD. }
         \label{fig:mc-coronal-cn-ad}
     \end{subfigure}
     \hspace*{\fill}
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/coronal/CN_MCI_AD_cm_CORONAL}
         \caption{Comparativa CN-MCI-AD. }
         \label{fig:mc-coronal-cn-mci-ad}
@@ -424,13 +424,13 @@ igual que en la clasificación de dos clases de este plano.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/sagittal/CN_AD_output_SAGITTAL}
         \caption{Comparativa CN-AD. }
         \label{fig:sagital-cn-ad}
     \end{subfigure}
     \hspace*{\fill}
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/sagittal/CN_MCI_AD_output_SAGITTAL}
         \caption{Comparativa CN-MCI-AD. }
         \label{fig:sagital-c-mci-ad}
@@ -471,13 +471,13 @@ igual que en la clasificación de dos clases de este plano.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/sagittal/CN_AD_cm_SAGITTAL}
         \caption{Comparativa CN-AD. }
         \label{fig:mc-sagital-cn-ad}
     \end{subfigure}
     \hspace*{\fill}
-    \begin{subfigure}{0.4\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{./imgs/resultados/sagittal/CN_MCI_AD_cm_SAGITTAL}
         \caption{Comparativa CN-MCI-AD. }
         \label{fig:mc-sagital-cn-mci-ad}
@@ -507,6 +507,7 @@ en la comparativa de 3 clases.
 
 Además el plano coronal anatómicamente engloba las tres regiones más importantes del cerebro relacionadas con la EA:
 el hipocampo, la corteza y los ventrículos.
-Por lo tanto se puede concluir que sí es el mejor plano para el diagnóstico de la enfermedad.
+Por lo tanto, con los datos que se han obtenido se puede concluir que sí es el mejor plano para el diagnóstico de la
+enfermedad.
 
 
