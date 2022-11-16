@@ -1,0 +1,95 @@
+@use "./palette" as *;
+
+// change the theme
+$theme-colors: (
+  "primary": $alz-primary,
+  "secondary": $alz-secondary,
+  "success": $alz-success,
+  "warning": $alz-warning,
+  "danger": $alz-danger,
+  "info": $alz-info,
+  "light": $alz-light,
+  "dark": $alz-dark,
+);
+
+$grays: (
+  "100": $alz-grey-100,
+  "200": $alz-grey-200,
+  "300": $alz-grey-300,
+  "400": $alz-grey-400,
+  "500": $alz-grey-500,
+  "600": $alz-grey-600,
+  "700": $alz-grey-700,
+  "800": $alz-grey-800,
+  "900": $alz-grey-900,
+);
+
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap.scss";
+
+.btn {
+  margin: 6px;
+  font-weight: 500;
+  font-size: large;
+  border-radius: 0.3rem;
+  padding: 8px;
+}
+
+.btn-secondary {
+  &,
+  &:focus,
+  &:hover {
+    color: $alz-primary-dark;
+  }
+}
+
+.btn-outline-dark {
+  color: black;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.form-control,
+.was-validated .form-control {
+  &:focus,
+  &:valid:focus {
+    border-color: $alz-primary;
+    box-shadow: 0 0 0 0.25rem rgba(17, 88, 130, 0.3);
+  }
+
+  &:valid {
+    border: 1px solid #ced4da;
+    background-image: none;
+  }
+}
+
+.form-check-input,
+.was-validated .form-check-input {
+  &:focus,
+  &:checked,
+  &:valid:focus {
+    border-color: $alz-primary;
+    box-shadow: 0 0 0 0.25rem rgba(17, 88, 130, 0.3);
+  }
+
+  &:checked,
+  &:valid:checked {
+    background-color: $alz-primary;
+  }
+
+  &:valid {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
+  &:valid ~ .form-check-label {
+    color: $alz-black;
+  }
+}
+
+.spinner-border {
+  width: 6rem;
+  height: 6rem;
+  border-width: 8px;
+}
