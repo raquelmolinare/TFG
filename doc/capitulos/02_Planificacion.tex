@@ -116,6 +116,12 @@ En esta tabla se muestra el tiempo dedicado a las diferentes tareas anteriorment
 
 \section{Diagrama de Gantt}\label{sec:diagrama-de-gantt}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./imgs/diagrama-gantt}
+    \caption{Diagrama de Gantt}
+    \label{fig:diagrama-gantt}
+\end{figure}
 
 \section{Presupuesto}\label{sec:presupuesto}
 Se dividen tres tipos de recursos para llevar a cabo las tareas del proyecto: recursos humanos, de software y de
@@ -175,22 +181,21 @@ Los recursos software y su coste se incluyen en la siguiente tabla:
 \end{table}
 
 \subsection{Recursos hardware}\label{subsec:recursos-hardware}
-Los recursos software y su coste se incluyen en la siguiente tabla:
+Los recursos hardware y su coste teniendo en cuenta que se van a amortizar durante 5 meses
+se incluyen en la siguiente tabla:
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|l|l|l|}
+    \begin{tabular}{|l|l|l|l|l|}
         \hline
-        \textbf{Componente} & \textbf{Modelo} & \textbf{Coste (euros)} \\
+        \textbf{Recurso} & \textbf{Modelo} &  \textbf{Coste (€)} & \textbf{Vida útil} & \textbf{Amortización (€)} \\
         \hline
-        CPU & - & - \\
+        Portatil & HP-Pavilion 15-cs0xxx & 1350 & 5 años & 140.63 \\
         \hline
-        GPU & - & - \\
-        \hline
-        RAM & - & - \\
+        Entornos de G.Colab &  & 0 & & 0 \\
         \hline
         \hline
-        Total &  & - \\
+        Total &  & 1350 &  & 140.63 \\
         \hline
     \end{tabular}
     \caption{Recursos hardware}
@@ -212,10 +217,10 @@ en la siguiente tabla:
         \hline
         Recursos Software & 0 \\
         \hline
-        Recursos Hardware & - \\
+        Recursos Hardware & 140.63 \\
         \hline
         \hline
-        Total & - \\
+        Total & 6492.63 \\
         \hline
     \end{tabular}
     \caption{Presupuesto final}
