@@ -22,7 +22,7 @@ class ModelManager:
 
     @staticmethod
     def __get_model_path(MODEL):
-        match MODEL:
+        match MODEL:   # noqa
             case BrainPlanes.AXIAL.value:
                 path = get_config().AXIAL_MODEL_PATH
             case BrainPlanes.CORONAL.value:
