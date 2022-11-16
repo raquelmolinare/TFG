@@ -49,7 +49,7 @@ export function ClassificationPage() {
     setClassification(undefined);
     if (!validateInput(selectedFileNifti)) {
       setInvalidInput(true);
-      showError("", "Archivo no valido");
+      showError("", "Tipo de archivo no válido");
     } else if (selectedFileNifti) {
       const formData = new FormData();
       formData.append("file", selectedFileNifti);

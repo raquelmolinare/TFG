@@ -29,8 +29,10 @@ export function Snackbar({ titleMessage, message, duration }: SnackbarProps) {
         animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 1] }}
         transition={{ duration: duration, times: [0, 0.05, 0.95, 1] }}
       >
-        <span className="toast-title-message">{titleMessage}</span>
-        <span className="toast-message">{message}</span>
+          <h4>
+              <span className="toast-title-message">{titleMessage}</span>
+              <span className="toast-message">{message}</span>
+          </h4>
       </motion.div>
     </div>
   );
