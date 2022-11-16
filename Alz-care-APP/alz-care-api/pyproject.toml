@@ -7,13 +7,16 @@ readme = "README.md"
 packages = [{include = "alz_care_api"}]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8,<3.11"
 Flask = "^2.2.2"
 flask-smorest = "^0.40.0"
 marshmallow = "^3.18.0"
 python-dotenv = "^0.21.0"
 pytest = "^7.2.0"
 pydantic = "^1.10.2"
+matplotlib = "^3.6.2"
+nibabel = "^4.0.2"
+tensorflow = "^2.10.0"
 
 [tool.poetry.group.dev.dependencies]
 taskipy = "^1.10.3"
@@ -26,4 +29,4 @@ build-backend = "poetry.core.masonry.api"
 [tool.taskipy.tasks]
 test = "pytest"
 lint = "flake8 --statistics"
-serve = "flask --app app --debug run"
+serve = "python src/app.py"

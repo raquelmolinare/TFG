@@ -1,0 +1,17 @@
+@use "../../styles/palette" as *;
+
+.progress-container-CN {
+  width: 80px;
+  height: 80px;
+  border: #3c7682 solid 4px;
+  border-radius: 100%;
+}
+
+.progress-container {
+  width: 80px;
+  height: 80px;
+}
+
+.row {
+  min-width: 100%;
+}

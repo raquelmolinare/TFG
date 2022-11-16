@@ -26,4 +26,4 @@ jobs:
 
       - name: Run tests
         working-directory: Alz-care-APP/alz-care-api
-        run: poetry run task test
+#        run: poetry run task test
