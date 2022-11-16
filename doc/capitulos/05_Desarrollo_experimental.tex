@@ -282,16 +282,18 @@ Informe de clasificación o o \textit{Classification Report}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/axial/CN_AD_output_AXIAL}
-    \caption{Evolución del modelo durante el entrenamiento: plano Axial. Comparativa CN-AD. }
-    \label{fig:axial-cn-ad}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/axial/CN_MCI_AD_output_AXIAL}
-    \caption{Evolución del modelo durante el entrenamiento: plano Axial. Comparativa CN-MCI-AD. }
-    \label{fig:axial-c-mci-ad}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/axial/CN_AD_output_AXIAL}
+        \caption{Comparativa CN-AD. }
+        \label{fig:axial-cn-ad}
+    \end{subfigure}
+    \hspace*{\fill}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/axial/CN_MCI_AD_output_AXIAL}
+        \caption{Comparativa CN-MCI-AD. }
+        \label{fig:axial-c-mci-ad}
+    \end{subfigure}
+    \caption{Evolución del modelo durante el entrenamiento: plano Axial} \label{fig:axial-model}
 \end{figure}
 
 \begin{table}[H]
@@ -327,33 +329,42 @@ Informe de clasificación o o \textit{Classification Report}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/axial/CN_AD_cm_AXIAL}
-    \caption{Matriz de confusión del plano Axial. Comparativa CN-AD. }
-    \label{fig:mc-axial-cn-ad}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/axial/CN_AD_cm_AXIAL}
+        \caption{Comparativa CN-AD. }
+        \label{fig:mc-axial-cn-ad}
+    \end{subfigure}
+    \hspace*{\fill}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/axial/CN_MCI_AD_cm_AXIAL}
+        \caption{Comparativa CN-MCI-AD. }
+        \label{fig:mc-axial-cn-mci-ad}
+    \end{subfigure}
+    \caption{Matrices de confusión del plano Axial} \label{fig:mc-axial}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/axial/CN_MCI_AD_cm_AXIAL}
-    \caption{Matriz de confusión del plano Axial. Comparativa CN-MCI-AD. }
-    \label{fig:mc-axial-cn-mci-ad}
-\end{figure}
+Al comparar entre CN y AD en el plano axíal se obtiene una precisión del 69\%
+Frente al 53\% que se obtiene en la clasificación entre CN, MCI y AD. Además  en la comparación de dos clases se
+observa un valor alto de falsos negativos.
+En la clasificación de tres clases el etiquetado de la clase intermedia MCI ha sido  peor en comparación a CN y AD.
 
 
 \subsection{Resultados del plano Coronal}\label{subsec:resultados-del-plano-coronal}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/coronal/CN_AD_output_CORONAL}
-    \caption{Evolución del modelo durante el entrenamiento: plano Coronal. Comparativa CN-AD. }
-    \label{fig:coronal-cn-ad}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/coronal/CN_MCI_AD_output_CORONAL}
-    \caption{Evolución del modelo durante el entrenamiento: plano Coronal. Comparativa CN-MCI-AD. }
-    \label{fig:coronal-c-mci-ad}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/coronal/CN_AD_output_CORONAL}
+        \caption{Comparativa CN-AD. }
+        \label{fig:coronal-cn-ad}
+    \end{subfigure}
+    \hspace*{\fill}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/coronal/CN_MCI_AD_output_CORONAL}
+        \caption{Comparativa CN-MCI-AD. }
+        \label{fig:coronal-c-mci-ad}
+    \end{subfigure}
+    \caption{Evolución del modelo durante el entrenamiento: plano Coronal.} \label{fig:coronal-model}
 \end{figure}
 
 \begin{table}[H]
@@ -389,32 +400,42 @@ Informe de clasificación o o \textit{Classification Report}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/coronal/CN_AD_cm_CORONAL}
-    \caption{Matriz de confusión del plano Coronal. Comparativa CN-AD. }
-    \label{fig:mc-coronal-cn-ad}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/coronal/CN_AD_cm_CORONAL}
+        \caption{Comparativa CN-AD. }
+        \label{fig:mc-coronal-cn-ad}
+    \end{subfigure}
+    \hspace*{\fill}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/coronal/CN_MCI_AD_cm_CORONAL}
+        \caption{Comparativa CN-MCI-AD. }
+        \label{fig:mc-coronal-cn-mci-ad}
+    \end{subfigure}
+    \caption{Matrices de confusión del plano Coronal.} \label{fig:mc-coronal}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/coronal/CN_MCI_AD_cm_CORONAL}
-    \caption{Matriz de confusión del plano Coronal. Comparativa CN-MCI-AD. }
-    \label{fig:mc-coronal-cn-mci-ad}
-\end{figure}
+En una primera impresión, estos resultados son bastante buenos.
+Al comparar entre CN y AD en el plano coronal se obtiene una precisión del 72\%, pero se observa que ha habido más
+falsos negativos que falsos positivos.
+En la clasificación entre CN, MCI y AD se obtiene una precisión del 59\% y un mayor número de falsos negativos, al
+igual que en la clasificación de dos clases de este plano.
 
 \subsection{Resultados del plano Sagital}\label{subsec:resultados-del-plano-sagital}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/sagittal/CN_AD_output_SAGITTAL}
-    \caption{Evolución del modelo durante el entrenamiento: plano Sagital. Comparativa CN-AD. }
-    \label{fig:sagital-cn-ad}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/sagittal/CN_MCI_AD_output_SAGITTAL}
-    \caption{Evolución del modelo durante el entrenamiento: plano Sagital. Comparativa CN-MCI-AD. }
-    \label{fig:sagital-c-mci-ad}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/sagittal/CN_AD_output_SAGITTAL}
+        \caption{Comparativa CN-AD. }
+        \label{fig:sagital-cn-ad}
+    \end{subfigure}
+    \hspace*{\fill}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/sagittal/CN_MCI_AD_output_SAGITTAL}
+        \caption{Comparativa CN-MCI-AD. }
+        \label{fig:sagital-c-mci-ad}
+    \end{subfigure}
+    \caption{Evolución del modelo durante el entrenamiento: plano Sagital.} \label{fig:sagittal-model}
 \end{figure}
 
 \begin{table}[H]
@@ -450,17 +471,42 @@ Informe de clasificación o o \textit{Classification Report}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/sagittal/CN_AD_cm_SAGITTAL}
-    \caption{Matriz de confusión del plano Sagital. Comparativa CN-AD. }
-    \label{fig:mc-sagital-cn-ad}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/sagittal/CN_AD_cm_SAGITTAL}
+        \caption{Comparativa CN-AD. }
+        \label{fig:mc-sagital-cn-ad}
+    \end{subfigure}
+    \hspace*{\fill}
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{./imgs/resultados/sagittal/CN_MCI_AD_cm_SAGITTAL}
+        \caption{Comparativa CN-MCI-AD. }
+        \label{fig:mc-sagital-cn-mci-ad}
+    \end{subfigure}
+    \caption{Matrices de confusión del plano Sagital.} \label{fig:mc-sagittal}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{./imgs/resultados/sagittal/CN_MCI_AD_cm_SAGITTAL}
-    \caption{Matriz de confusión del plano Sagital. Comparativa CN-MCI-AD. }
-    \label{fig:mc-sagital-cn-mci-ad}
-\end{figure}
+En el plano sagital se obtiene una precisión del 53\% en la clasificación entre CN y AD y un 40\% en la clasificación
+entre CN, MCI y AD. Destacan en ambos una tendencia a etiquetar con más facilidad el tipo AD dando lugar a un mayor
+número de falsos positivos que de falsos negativos.
+
+\section{Conclusión}\label{sec:conclusion}
+
+Para empezar hay que concluir que la evolución de los modelos durante el entrenamiento es muy similar.
+En ninguno de los casos se obtiene una precisión mayor al 80\%.
+Y además la tendencia de la función de pérdida es un indicador de que quizás haría falta un mayor número de muestras de
+entrenamiento.
+En este caso hemos utilizado el mayor número posible de las disponibles creando un dataset balanceado.
+Sería interesante plantear una nueva vertiente en la que se mezclen biomarcadores de varias fuentes de datos como hacen
+algunos estudios de la literatura, y como también se intentó en un principio en este proyecto, pero los requerimientos
+de acceso a tales repositorios de datos es otro impedimento.
+
+En cuanto a la pregunta que marca el objetivo de este proyecto. \textbf{¿Qué plano es mejor para el diagnóstico del
+Alzheimer?} Claramente, teniendo en mente el valor de la precisión, en el \textbf{plano coronal} un mayor porcentaje
+de datos han sido etiquetados de forma correcta que en el resto de planos tanto en la comparativa de 2 clases como
+en la comparativa de 3 clases.
+
+Además el plano coronal anatómicamente engloba las tres regiones más importantes del cerebro relacionadas con la EA:
+el hipocampo, la corteza y los ventrículos.
+Por lo tanto se puede concluir que sí es el mejor plano para el diagnóstico de la enfermedad.
 
 
-\section{Conclusión}
