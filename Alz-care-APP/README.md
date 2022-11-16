@@ -1,16 +1,9 @@
 
 # Alz Care
 
-Se propone esta app como la aplicación de un sistema de aprendizaje profundo a partir de Imágenes por Resonancia 
-Magnética en un ejemplo de uso real.
+Alz Care se idea para ser una aplicación que una Inteligencia Artificial y salud.
+En ella a partir de Imágenes por resonancia magnética se obtiene una clasificación del deterioro cognitivo y EA presentes.
 
-Proyecto: 
-**Alz Care**
-
-Descripción: 
-
-**Se idea Alz Care para ser una aplicación que una inteligencia artificial y salud, en ella a partir de un IRM y se obtiene 
-una clasificación del deterioro cognitivo y demencia presente en ella**
 
 ### Identidad visual:
 
