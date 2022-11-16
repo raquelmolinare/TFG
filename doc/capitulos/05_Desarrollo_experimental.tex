@@ -29,7 +29,7 @@ Se propone desarrollar un sistema de aprendizaje profundo a partir de MRI con el
 El conjunto de biomarcadores MRI que se ha utilizado se ha obtenido de la base de datos ADNI, que es un estudio
 longitudinal multicéntrico en el que se desarrollan biomarcadores genéticos, bioquímicos y de imagen para la detección
 temprana y el seguimiento de la EA, se habla más en profundidad sobre esta base de datos en el
-apartado~\ref{ch:aped.a}.
+apéndice~\ref{ch:aped.a}.
 Cabe destacar que también intentó hacer uso de la base de datos OASIS, de forma que se obtuviera un número mayor de
 datos y poder prevenir los posibles problemas por falta de datos, pero no fue posible ya que no se aprobó la solicitud
 de acceso realizada.
@@ -44,7 +44,7 @@ del sujeto, diferenciándose:
 \end{itemize}
 
 Para la realización de la experimentación se han utilizado biomarcadores MRI de tipo \textit{NIfTI} pertenecientes a un
-subconjunto de datos sometidos a un post-procesamiento que se comenta en la sección~\ref{subsec:post-procesamiento-en-adni}.
+subconjunto de datos sometidos a un post-procesamiento que se comenta en el apartado~\ref{subsec:post-procesamiento-en-adni}.
 
 En el subconjunto de datos disponibles, los biomarcadores de clase \Gls{AD} son más limitados que los de clase \Gls{CN} y \Gls{MCI}.
 Siendo la distribución de los datos la siguiente:
@@ -88,13 +88,13 @@ Hay múltiples herramientas disponibles para ello según la finalidad que se qui
 Para visualizar archivos en formato \textit{NIfTI} se ha hecho uso del software \textbf{MRIcron}, que ha requerido 
 instalación y con el que se ha podido realizar una visualización de múltiples capas de la MRI. También se ha hecho uso 
 del recurso \textbf{IDA} online del que se obtienen los datos de la base de datos \textit{ADNI} y del que se detalla más
-información en el el apartado~\ref{ch:aped.a}.
+información en el apéndice~\ref{ch:aped.a}.
 Este recurso integra un visualizador de neuroimágenes.
 
 
 \subsection{Herramientas para trabajar con técnicas de Deep Learning}
 \label{subsec:herramientas-para-trabajar-con-tecnicas-de-deep-learning}
-Como bien se muestra en el apartado~\ref{sec:datos-y-herramientas-estado-del-arte}, existe un amplio abanico de
+Como bien se muestra en la sección~\ref{sec:datos-y-herramientas-estado-del-arte}, existe un amplio abanico de
 posibilidades en cuanto a herramientas que permiten la experimentación de técnicas de DL.
 
 De entre todas ellas se ha optado por utilizar \textbf{TensorFlow} y \textbf{Keras}, no solo por ser las más utilizadas
@@ -115,7 +115,7 @@ experimental es \textbf{Python}.
 \section{Procesamiento de biomarcadores}\label{sec:procesamiento-de-biomarcadores}
 
 \subsection{Post-procesamiento en ADNI}\label{subsec:post-procesamiento-en-adni}
-Tal y como se ha comentado en ~\ref{sec:conjunto-de-datos-empleado}, el conjunto de datos utilizado en este estudio se
+Tal y como se ha comentado en la sección~\ref{sec:conjunto-de-datos-empleado}, el conjunto de datos utilizado en este estudio se
 ha obtenido de un subconjunto de neuroimágenes de ADNI al que se le aplica un procesamiento, con el objetivo de extraer
 la información más importante y descartar la irrelevante.
 
