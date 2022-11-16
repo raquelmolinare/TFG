@@ -174,7 +174,11 @@
 }
 \makeatother
 
+\usepackage{glossaries}
+\input{glosario/entradas_glosario}
 
+
+\makenoidxglossaries
 
 \begin{document}
 
@@ -197,6 +201,8 @@
     \newpage
     \listoftables
 
+    \printnoidxglossaries\addcontentsline{toc}{chapter}{Glosario}
+
     \mainmatter
     \setlength{\parskip}{5pt}
 
@@ -218,11 +224,6 @@
     \newpage
     \appendix\addcontentsline{toc}{chapter}{Apéndices}
     \input{apendices/ADNI}
-    %\input{apendices/manual_usuario/manual_usuario}
-    %%\input{apendices/paper/paper}
-    %\input{glosario/entradas_glosario}
-    % \addcontentsline{toc}{chapter}{Glosario}
-    % \printglossary
 
     \newpage
     \bibliography{bibliografia}\addcontentsline{toc}{chapter}{Bibliografía}
